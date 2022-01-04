@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
-const Container = styled.h1`
+const Container = styled.div`
   display: flex;
   justify-content: center;
   padding-top: 5vw;

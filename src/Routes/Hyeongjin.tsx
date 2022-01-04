@@ -1,7 +1,7 @@
 import { motion, Variants } from "framer-motion";
 import styled from "styled-components";
 import Title from "../Components/Title";
-import memoji from "../Images/memoji.png";
+import memoji from "../Images/memoji.webp";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -32,11 +32,9 @@ const Memoji = styled(motion.img)`
   transform-origin: bottom;
   @media (max-width: 1200px) {
     width: 300px;
-    bottom: 79px;
   }
   @media (max-width: 320px) {
     width: 200px;
-    bottom: 86px;
   }
 `;
 

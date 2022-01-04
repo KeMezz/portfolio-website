@@ -6,6 +6,34 @@ import styled from "styled-components";
 import { windowSize } from "../atom";
 import { useWindowSize } from "../useWindowSize";
 
+const Footer = styled.footer`
+  width: 100vw;
+  height: 100px;
+  background-color: ${(props) => props.theme.bgColor.sub};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  height: 100px;
+  h3 {
+    font-weight: 800;
+    text-align: center;
+    font-size: 18px;
+  }
+  p {
+    font-size: 10px;
+  }
+  @media (max-width: 320px) {
+    h3 {
+      font-size: 14px;
+    }
+    p {
+      font-size: 8px;
+    }
+  }
+`;
+
 const Container = styled.nav`
   overflow: hidden;
   width: 100vw;
@@ -17,7 +45,7 @@ const Container = styled.nav`
   padding-bottom: 9vw;
   gap: 3vw;
   @media (max-width: 1200px) {
-    height: calc(100vh - 100px);
+    padding-bottom: 0;
   }
 `;
 
@@ -207,6 +235,12 @@ function Home() {
           </AnimatePresence>
         </Container>
       )}
+      {size.width < 1200 ? (
+        <Footer>
+          <h3>FRONTEND DEVELOPER PORTFOLIO</h3>
+          <p>Copyright 2022. Hyeong Jin. All rights reserved.</p>
+        </Footer>
+      ) : null}
     </>
   );
 }

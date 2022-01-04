@@ -8,8 +8,8 @@ const Container = styled(motion.div)`
     position: absolute;
     background-color: ${(props) => props.theme.bgColor.sub};
   }
-  div {
-    @media (max-width: 1200px) {
+  @media (max-width: 1200px) {
+    div {
       display: none;
     }
   }
