@@ -11,9 +11,10 @@ export const Container = styled(motion.section)`
   gap: 6vw;
   @media (max-width: 1200px) {
     gap: 8vh;
-  }
-  @media (max-width: 769px) {
+    height: auto;
+    margin-top: 14vh;
     flex-direction: column;
+    margin-bottom: 10vh;
   }
 `;
 
@@ -34,14 +35,18 @@ export const ProjectCategory = styled(motion.div)`
     font-size: calc(10px + 0.8vw);
   }
   @media (max-width: 1200px) {
-    min-width: 200px;
-    max-width: 300px;
+    min-width: 300px;
+    max-width: 400px;
     padding: 3.6vw 0;
-  }
-  @media (max-width: 769px) {
-    width: 50vw;
     border-top: solid 3px ${(props) => props.theme.textColor.main};
     border-bottom: solid 3px ${(props) => props.theme.textColor.main};
+  }
+  @media (max-width: 769px) {
+    min-width: auto;
+    width: 60vw;
+    h2 {
+      padding-bottom: 3vw;
+    }
   }
 `;
 

@@ -24,8 +24,11 @@ function Router() {
         <Route path="/hyeongjin" element={<Hyeongjin />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/projects/vanilaJS" element={<VanilaJS />} />
+        <Route path="/projects/vanilaJS/:id" element={<VanilaJS />} />
         <Route path="/projects/reactJS" element={<ReactJS />} />
+        <Route path="/projects/reactJS/:id" element={<ReactJS />} />
         <Route path="/projects/css" element={<CSS />} />
+        <Route path="/projects/css/:id" element={<CSS />} />
         <Route path="/stacks" element={<Stacks />} />
         <Route path="/stacks/:id" element={<StacksDetail />} />
         <Route path="/contacts" element={<Contacts />} />

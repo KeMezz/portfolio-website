@@ -21,7 +21,7 @@ function Stacks() {
         <ProjectCategory variants={pcVariants}>
           <Text variants={textVariants}>
             <h2>React JS</h2>
-            <h4>Typescript and more..</h4>
+            <h4>Recoil and more..</h4>
           </Text>
         </ProjectCategory>
         <ProjectCategory variants={pcVariants}>
