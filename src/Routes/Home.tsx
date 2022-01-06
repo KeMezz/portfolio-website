@@ -32,9 +32,11 @@ const Row = styled(motion.div)`
     1px -1px 0 ${(props) => props.theme.textColor.sub},
     -1px 1px 0 ${(props) => props.theme.textColor.sub},
     1px 1px 0 ${(props) => props.theme.textColor.sub};
-  &:hover {
-    text-shadow: none;
-    color: crimson;
+  @media (min-width: 1200px) {
+    &:hover {
+      text-shadow: none;
+      color: crimson;
+    }
   }
   .point {
     text-shadow: none;

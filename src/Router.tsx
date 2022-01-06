@@ -43,7 +43,7 @@ const Footer = styled.footer`
 
 function Router() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/hyeongjin" element={<Hyeongjin />} />

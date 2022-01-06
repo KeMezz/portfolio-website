@@ -37,7 +37,7 @@ const ProjectItem = styled(motion.div)`
 const ProjectDetailView = styled(motion.div)`
   z-index: 2;
   position: fixed;
-  top: 10%;
+  top: 14%;
   left: 0;
   right: 0;
   margin: 0 auto;
@@ -78,11 +78,11 @@ const DetailBottom = styled.div`
   h3 {
     font-size: 40px;
     font-weight: 700;
-    padding-bottom: 18px;
+    /* padding-bottom: 12px; */
   }
-  p {
+  /* p {
     font-size: 18px;
-  }
+  } */
   @media (max-width: 1200px) {
     padding: 20px;
     h5 {
@@ -90,11 +90,11 @@ const DetailBottom = styled.div`
     }
     h3 {
       font-size: 28px;
-      padding-bottom: 14px;
+      /* padding-bottom: 14px; */
     }
-    p {
+    /* p {
       font-size: 14px;
-    }
+    } */
   }
   @media (max-width: 400px) {
     h5 {
@@ -102,11 +102,11 @@ const DetailBottom = styled.div`
     }
     h3 {
       font-size: 18px;
-      padding-bottom: 10px;
+      /* padding-bottom: 10px; */
     }
-    p {
+    /* p {
       font-size: 12px;
-    }
+    } */
   }
 `;
 
@@ -126,7 +126,7 @@ const Skills = styled.div`
 `;
 
 const GithubLink = styled.div`
-  padding-top: 20px;
+  padding-top: 40px;
   display: flex;
   gap: 12px;
   div {
@@ -145,6 +145,7 @@ const GithubLink = styled.div`
   }
   @media (max-width: 1200px) {
     gap: 6px;
+    padding-top: 30px;
     div {
       padding: 6px 12px;
       font-size: 14px;
@@ -154,6 +155,7 @@ const GithubLink = styled.div`
     }
   }
   @media (max-width: 400px) {
+    padding-top: 20px;
     div {
       padding: 4px 8px;
       padding-right: 12px;
@@ -231,7 +233,7 @@ function Projects() {
                 <DetailBottom>
                   <h5>{item.category}</h5>
                   <h3>{item.name}</h3>
-                  <p>{item.desc}</p>
+                  {/* <p>{item.desc}</p> */}
                   <Skills>
                     {item.stacks.map((eachStacks, index) => (
                       <img key={index} src={eachStacks} alt="logo" />

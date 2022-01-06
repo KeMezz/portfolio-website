@@ -4,17 +4,18 @@ import Title from "../Components/Title";
 
 const Container = styled(motion.section)`
   display: flex;
-  justify-content: center;
-  align-content: center;
-  height: calc(85vh - 14vw);
-  gap: 6vw;
+  flex-direction: column;
+  min-height: 80vh;
+  background-color: ${(props) => props.theme.bgColor.main};
   @media (max-width: 1200px) {
-    gap: 8vh;
-    height: auto;
-    margin-top: 14vh;
-    flex-direction: column;
-    margin-bottom: 10vh;
+    min-height: 87vh;
   }
+`;
+
+const AllSkills = styled.div`
+  display: flex;
+  margin: auto;
+  gap: 3vw;
 `;
 
 const SkillsCategory = styled(motion.div)`
@@ -69,26 +70,28 @@ const textVariants: Variants = {
 function Skills() {
   return (
     <>
-      <Title titleName="skills" />
       <Container initial="initial" animate="animate">
-        <SkillsCategory variants={pcVariants}>
-          <Text variants={textVariants}>
-            <h2>Vanila JS</h2>
-            <h4>ES6 and more..</h4>
-          </Text>
-        </SkillsCategory>
-        <SkillsCategory variants={pcVariants}>
-          <Text variants={textVariants}>
-            <h2>React JS</h2>
-            <h4>Recoil and more..</h4>
-          </Text>
-        </SkillsCategory>
-        <SkillsCategory variants={pcVariants}>
-          <Text variants={textVariants}>
-            <h2>HTML, CSS</h2>
-            <h4>SCSS and more..</h4>
-          </Text>
-        </SkillsCategory>
+        <Title titleName="skills" />
+        <AllSkills>
+          <SkillsCategory variants={pcVariants}>
+            <Text variants={textVariants}>
+              <h2>Vanila JS</h2>
+              <h4>ES6 and more..</h4>
+            </Text>
+          </SkillsCategory>
+          <SkillsCategory variants={pcVariants}>
+            <Text variants={textVariants}>
+              <h2>React JS</h2>
+              <h4>Recoil and more..</h4>
+            </Text>
+          </SkillsCategory>
+          <SkillsCategory variants={pcVariants}>
+            <Text variants={textVariants}>
+              <h2>HTML, CSS</h2>
+              <h4>SCSS and more..</h4>
+            </Text>
+          </SkillsCategory>
+        </AllSkills>
       </Container>
     </>
   );
