@@ -1,13 +1,22 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import styled from "styled-components";
 import Title from "../Components/Title";
 
+const Wrapper = styled(motion.section)`
+  background-color: ${(props) => props.theme.bgColor.main};
+  display: flex;
+  flex-direction: column;
+  min-height: 80vh;
+  @media (max-width: 1200px) {
+    min-height: 87vh;
+  }
+`;
+
 const Container = styled.div`
   display: flex;
-  height: 80vh;
   justify-content: center;
   align-items: center;
-  padding-bottom: 10vw;
+  margin: auto;
 `;
 
 const GithubLogo = styled(motion.div)`
@@ -24,16 +33,20 @@ const GithubLogo = styled(motion.div)`
 function Contacts() {
   return (
     <>
-      <Title titleName="contacts" />
-      <Container>
-        <GithubLogo
-          className="xi-github"
-          onClick={() => window.open("https://github.com/KeMezz")}
-          initial={{ scale: 0 }}
-          animate={{ scale: 1, rotateZ: 360 }}
-          transition={{ delay: 0.7, duration: 1.5, type: "spring" }}
-        />
-      </Container>
+      <AnimatePresence>
+        <Wrapper layoutId="whitebox">
+          <Title titleName="contacts" />
+          <Container>
+            <GithubLogo
+              className="xi-github"
+              onClick={() => window.open("https://github.com/KeMezz")}
+              initial={{ scale: 0 }}
+              animate={{ scale: 1, rotateZ: 360 }}
+              transition={{ delay: 0.7, duration: 1.5, type: "spring" }}
+            />
+          </Container>
+        </Wrapper>
+      </AnimatePresence>
     </>
   );
 }

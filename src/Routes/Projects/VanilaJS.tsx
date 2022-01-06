@@ -1,8 +1,11 @@
 import { AnimatePresence, motion, Variants } from "framer-motion";
 import { useNavigate, useParams } from "react-router-dom";
+import { useRecoilValue } from "recoil";
 import styled from "styled-components";
+import { windowSize } from "../../atom";
 import Title from "../../Components/Title";
 import { vanilaJSData } from "../../portfolio";
+import { useWindowSize } from "../../useWindowSize";
 
 const Container = styled.div`
   height: auto;
@@ -49,8 +52,6 @@ const ProjectDetailView = styled(motion.div)`
   width: 90vw;
   max-width: 700px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-  /* height: 90vh; */
-  /* max-height: 850px; */
 `;
 
 const DetailTop = styled.div`
@@ -65,7 +66,7 @@ const DetailTop = styled.div`
     object-fit: cover;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
-  @media (max-width: 600px) {
+  @media (max-width: 1200px) {
     padding: 20px 0;
   }
 `;
@@ -88,7 +89,7 @@ const DetailBottom = styled.div`
   p {
     font-size: 18px;
   }
-  @media (max-width: 600px) {
+  @media (max-width: 1200px) {
     padding: 20px;
     h5 {
       font-size: 16px;
@@ -110,7 +111,7 @@ const Skills = styled.div`
   img {
     width: 30px;
   }
-  @media (max-width: 600px) {
+  @media (max-width: 1200px) {
     gap: 12px;
     img {
       width: 20px;
@@ -136,7 +137,7 @@ const GithubLink = styled.div`
       font-size: 24px;
     }
   }
-  @media (max-width: 600px) {
+  @media (max-width: 1200px) {
     gap: 6px;
     div {
       padding: 6px 12px;
@@ -184,6 +185,8 @@ const itemVariants: Variants = {
 function VanilaJS() {
   const navigate = useNavigate();
   const { id } = useParams();
+  const size = useRecoilValue(windowSize);
+  useWindowSize();
   return (
     <>
       <Container>
@@ -210,7 +213,13 @@ function VanilaJS() {
       {vanilaJSData.map((item) =>
         item.id + "" === id ? (
           <AnimatePresence key={item.id}>
-            <ProjectDetailView layoutId={item.id + ""} key={item.id}>
+            <ProjectDetailView
+              layoutId={item.id + ""}
+              key={item.id}
+              style={{
+                top: size.width / 4 === size.height / 3 ? "8%" : "12%",
+              }}
+            >
               <DetailTop>
                 <img src={item.thumbnail} alt={item.name} />
               </DetailTop>

@@ -6,8 +6,16 @@ import { darkTheme, lightTheme } from "./Themes/theme";
 
 const GlobalStyle = createGlobalStyle`
   body {
-    background-color: ${(props) => props.theme.bgColor.main};
+    background-color: ${(props) => props.theme.bgColor.sub};
     color: ${(props) => props.theme.textColor.main};
+    padding-top: 3vw;
+    padding-left: 3vw;
+    padding-right: 3vw;
+    @media (max-width: 1200px) {
+      padding-top: 0;
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
 `;
 

@@ -6,46 +6,18 @@ import styled from "styled-components";
 import { windowSize } from "../atom";
 import { useWindowSize } from "../useWindowSize";
 
-const Footer = styled.footer`
-  width: 100vw;
-  height: 100px;
-  background-color: ${(props) => props.theme.bgColor.sub};
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  height: 100px;
-  h3 {
-    font-weight: 800;
-    text-align: center;
-    font-size: 18px;
-  }
-  p {
-    font-size: 10px;
-  }
-  @media (max-width: 320px) {
-    h3 {
-      font-size: 14px;
-    }
-    p {
-      font-size: 8px;
-    }
-  }
-`;
-
-const Container = styled.nav`
+const Container = styled(motion.nav)`
   overflow: hidden;
-  width: 100vw;
-  height: 100vh;
+  background-color: ${(props) => props.theme.bgColor.main};
+  height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-bottom: 9vw;
+  padding: 5vw 0;
   gap: 3vw;
   @media (max-width: 1200px) {
-    padding-bottom: 0;
+    min-height: 87vh;
   }
 `;
 
@@ -84,163 +56,96 @@ function Home() {
     rowAnimation.start({ x: 0 });
   }, [rowAnimation]);
   useWindowSize();
+  const onMenuClick = async (navi: string, direction: number) => {
+    await rowAnimation.start({ x: direction });
+    await navigate(`/${navi}`);
+  };
   return (
     <>
-      {size.width > 1200 && size.height * 2 > size.width ? (
-        <Container>
-          <AnimatePresence>
-            <Row
-              key="hyeongjin"
-              initial={{ x: window.innerWidth * 2 }}
-              animate={rowAnimation}
-              transition={{ duration: 0.3 }}
-              onClick={async () => {
-                await rowAnimation.start({ x: window.innerWidth * 2 });
-                await navigate("/hyeongjin");
-              }}
-            >
-              <span>hyeongjin</span>
-              <span className="point">hyeongjin</span>
-              <span>hyeongjin</span>
-              <span>hyeongjin</span>
-            </Row>
-            <Row
-              key="projects"
-              initial={{ x: -(window.innerWidth * 2) }}
-              animate={rowAnimation}
-              transition={{ duration: 0.5 }}
-              onClick={async () => {
-                await rowAnimation.start({ x: -window.innerWidth * 2 });
-                await navigate("/projects");
-              }}
-            >
-              <span>ojects</span>
-              <span>projects</span>
-              <span className="point">projects</span>
-              <span>projects</span>
-              <span>projects</span>
-            </Row>
-            <Row
-              key="stacks"
-              initial={{ x: window.innerWidth * 2 }}
-              animate={rowAnimation}
-              transition={{ duration: 0.6 }}
-              onClick={async () => {
-                await rowAnimation.start({ x: window.innerWidth * 2 });
-                await navigate("/stacks");
-              }}
-            >
-              <span>stacks</span>
-              <span>stacks</span>
-              <span className="point">stacks</span>
-              <span>stacks</span>
-              <span>stac</span>
-            </Row>
-            <Row
-              key="contacts"
-              initial={{ x: -(window.innerWidth * 2) }}
-              animate={rowAnimation}
-              transition={{ duration: 0.7 }}
-              onClick={async () => {
-                await rowAnimation.start({ x: -window.innerWidth * 2 });
-                await navigate("/contacts");
-              }}
-            >
-              <span>contacts</span>
-              <span>contacts</span>
-              <span className="point">contacts</span>
-              <span>contacts</span>
-            </Row>
-          </AnimatePresence>
+      <AnimatePresence>
+        <Container layoutId="whitebox">
+          <Row
+            key="hyeongjin"
+            initial={{ x: 5000 }}
+            animate={rowAnimation}
+            transition={{ duration: 1 }}
+            onClick={() => onMenuClick("hyeongjin", 5000)}
+          >
+            {size.width > 1200 && size.height * 2 > size.width ? (
+              <h1>
+                yeongjin<span className="point">hyeongjin</span>
+                hyeongjinhyeongjin
+              </h1>
+            ) : (
+              <h1>
+                hyeongjinhyeongjinhyeongjin
+                <span className="point">hyeongjin</span>
+                hyeongjinhyeongjinhyeongjin
+              </h1>
+            )}
+          </Row>
+          <Row
+            key="projects"
+            initial={{ x: -5000 }}
+            animate={rowAnimation}
+            transition={{ duration: 0.9 }}
+            onClick={() => onMenuClick("projects", -5000)}
+          >
+            {size.width > 1200 && size.height * 2 > size.width ? (
+              <h1>
+                ojectsprojects<span className="point">projects</span>
+                projectsprojects
+              </h1>
+            ) : (
+              <h1>
+                projectsprojectsprojects
+                <span className="point">projects</span>
+                projectsprojectsprojects
+              </h1>
+            )}
+          </Row>
+          <Row
+            key="skills"
+            initial={{ x: 5000 }}
+            animate={rowAnimation}
+            transition={{ duration: 0.8 }}
+            onClick={() => onMenuClick("skills", 5000)}
+          >
+            {size.width > 1200 && size.height * 2 > size.width ? (
+              <h1>
+                llsskillsskills<span className="point">skills</span>
+                skillsskills
+              </h1>
+            ) : (
+              <h1>
+                skillsskillsskillsskillsskills
+                <span className="point">skills</span>
+                skillsskillsskillsskillsskills
+              </h1>
+            )}
+          </Row>
+          <Row
+            key="contacts"
+            initial={{ x: -5000 }}
+            animate={rowAnimation}
+            transition={{ duration: 0.6 }}
+            onClick={() => onMenuClick("contacts", -5000)}
+          >
+            {size.width > 1200 && size.height * 2 > size.width ? (
+              <h1>
+                tscontactscontacts<span className="point">contacts</span>
+                contacts
+              </h1>
+            ) : (
+              <h1>
+                contactscontactscontacts
+                <span className="point">contacts</span>
+                contactscontactscontacts
+              </h1>
+            )}
+          </Row>
         </Container>
-      ) : (
-        <Container>
-          <AnimatePresence>
-            <Row
-              key="hyeongjin"
-              initial={{ x: 5000 }}
-              animate={rowAnimation}
-              transition={{ duration: 0.6 }}
-              onClick={async () => {
-                await rowAnimation.start({ x: 5000 });
-                await navigate("/hyeongjin");
-              }}
-            >
-              <span>hyeongjin</span>
-              <span>hyeongjin</span>
-              <span>hyeongjin</span>
-              <span className="point">hyeongjin</span>
-              <span>hyeongjin</span>
-              <span>hyeongjin</span>
-              <span>hyeongjin</span>
-            </Row>
-            <Row
-              key="projects"
-              initial={{ x: -5000 }}
-              animate={rowAnimation}
-              transition={{ duration: 0.7 }}
-              onClick={async () => {
-                await rowAnimation.start({ x: -5000 });
-                await navigate("/projects");
-              }}
-            >
-              <span>projects</span>
-              <span>projects</span>
-              <span>projects</span>
-              <span className="point">projects</span>
-              <span>projects</span>
-              <span>projects</span>
-              <span>projects</span>
-            </Row>
-            <Row
-              key="stacks"
-              initial={{ x: 5000 }}
-              animate={rowAnimation}
-              transition={{ duration: 0.8 }}
-              onClick={async () => {
-                await rowAnimation.start({ x: 5000 });
-                await navigate("/stacks");
-              }}
-            >
-              <span>stacks</span>
-              <span>stacks</span>
-              <span>stacks</span>
-              <span>stacks</span>
-              <span>stacks</span>
-              <span className="point">stacks</span>
-              <span>stacks</span>
-              <span>stacks</span>
-              <span>stacks</span>
-              <span>stacks</span>
-              <span>stacks</span>
-            </Row>
-            <Row
-              key="contacts"
-              initial={{ x: -5000 }}
-              animate={rowAnimation}
-              transition={{ duration: 1 }}
-              onClick={async () => {
-                await rowAnimation.start({ x: -5000 });
-                await navigate("/contacts");
-              }}
-            >
-              <span>contacts</span>
-              <span>contacts</span>
-              <span>contacts</span>
-              <span className="point">contacts</span>
-              <span>contacts</span>
-              <span>contacts</span>
-              <span>contacts</span>
-            </Row>
-          </AnimatePresence>
-        </Container>
-      )}
-      {size.width < 1200 ? (
-        <Footer>
-          <h3>FRONTEND DEVELOPER PORTFOLIO</h3>
-          <p>Copyright 2022. Hyeong Jin. All rights reserved.</p>
-        </Footer>
-      ) : null}
+      </AnimatePresence>
     </>
   );
 }

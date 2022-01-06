@@ -161,7 +161,7 @@ function CSS() {
   const { id } = useParams();
   return (
     <>
-      <Container>
+      {/* <Container>
         <Title titleName="CSS" />
         <ProjectGrid
           variants={gridVariatns}
@@ -224,7 +224,7 @@ function CSS() {
             />
           </AnimatePresence>
         ) : null
-      )}
+      )} */}
     </>
   );
 }

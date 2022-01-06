@@ -1,38 +1,62 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import { useRecoilValue } from "recoil";
-import { windowSize } from "./atom";
-import Frame from "./Components/Frame";
 import Contacts from "./Routes/Contacts";
 import Home from "./Routes/Home";
 import Hyeongjin from "./Routes/Hyeongjin";
 import Projects from "./Routes/Projects";
-import Stacks from "./Routes/Stacks";
-import { useWindowSize } from "./useWindowSize";
-import StacksDetail from "./Routes/StacksDetail";
-import CSS from "./Routes/Projects/CSS";
-import VanilaJS from "./Routes/Projects/VanilaJS";
-import ReactJS from "./Routes/Projects/ReactJS";
+import Skills from "./Routes/Skills";
+import SkillsDetail from "./Routes/SkillsDetail";
+import styled from "styled-components";
+
+const Footer = styled.footer`
+  width: 100%;
+  height: calc(20vh - 3vw);
+  background-color: ${(props) => props.theme.bgColor.sub};
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  min-height: 80px;
+  h3 {
+    font-weight: 800;
+    text-align: center;
+    font-size: 24px;
+  }
+  p {
+    font-size: 16px;
+  }
+  @media (max-width: 1200px) {
+    height: 13vh;
+    h3 {
+      font-size: 18px;
+    }
+    p {
+      font-size: 10px;
+    }
+  }
+  @media (max-width: 320px) {
+    h3 {
+      font-size: 14px;
+    }
+  }
+`;
 
 function Router() {
-  const size = useRecoilValue(windowSize);
-  useWindowSize();
   return (
     <BrowserRouter>
-      {size.width < 1200 ? null : <Frame />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/hyeongjin" element={<Hyeongjin />} />
         <Route path="/projects" element={<Projects />} />
-        <Route path="/projects/vanilaJS" element={<VanilaJS />} />
-        <Route path="/projects/vanilaJS/:id" element={<VanilaJS />} />
-        <Route path="/projects/reactJS" element={<ReactJS />} />
-        <Route path="/projects/reactJS/:id" element={<ReactJS />} />
-        <Route path="/projects/css" element={<CSS />} />
-        <Route path="/projects/css/:id" element={<CSS />} />
-        <Route path="/stacks" element={<Stacks />} />
-        <Route path="/stacks/:id" element={<StacksDetail />} />
+        <Route path="/projects/:projectId" element={<Projects />} />
+        <Route path="/skills" element={<Skills />} />
+        <Route path="/skills/:id" element={<SkillsDetail />} />
         <Route path="/contacts" element={<Contacts />} />
       </Routes>
+      <Footer>
+        <h3>FRONTEND DEVELOPER PORTFOLIO</h3>
+        <p>Copyright 2022. Hyeong Jin. All rights reserved.</p>
+      </Footer>
     </BrowserRouter>
   );
 }

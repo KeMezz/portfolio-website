@@ -2,7 +2,7 @@ import { atom } from "recoil";
 
 export const dark = atom({
   key: "dark",
-  default: false,
+  default: true,
 });
 
 export const windowSize = atom({

@@ -4,14 +4,14 @@ import styled from "styled-components";
 const Container = styled.div`
   display: flex;
   justify-content: center;
-  padding-top: 5vw;
+  padding-top: 60px;
   text-transform: uppercase;
-  font-size: 4vw;
+  font-size: 60px;
   font-weight: 900;
   overflow: hidden;
-  @media (max-width: 1200px) {
-    font-size: calc(20px + 4vw);
-    padding-top: 8vh;
+  @media (max-width: 1000px) {
+    font-size: 36px;
+    padding-top: 60px;
   }
 `;
 
