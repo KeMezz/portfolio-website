@@ -1,5 +1,4 @@
 import { AnimatePresence, motion, Variants } from "framer-motion";
-import { url } from "inspector";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import Title from "../../Components/Title";
@@ -7,6 +6,7 @@ import { vanilaJSData } from "../../portfolio";
 
 const Container = styled.div`
   height: auto;
+  margin-bottom: 60px;
 `;
 
 const ProjectGrid = styled(motion.section)`
@@ -16,6 +16,7 @@ const ProjectGrid = styled(motion.section)`
   height: calc(85vh - 14vw);
   gap: 2vw;
   @media (max-width: 1200px) {
+    gap: 5vh;
     height: fit-content;
     flex-direction: column;
     margin-top: 8vh;
@@ -39,7 +40,7 @@ const ProjectItem = styled(motion.div)`
 const ProjectDetailView = styled(motion.div)`
   z-index: 2;
   position: fixed;
-  top: 12%;
+  top: 13%;
   left: 0;
   right: 0;
   margin: 0 auto;
@@ -47,6 +48,7 @@ const ProjectDetailView = styled(motion.div)`
   flex-direction: column;
   width: 90vw;
   max-width: 700px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   /* height: 90vh; */
   /* max-height: 850px; */
 `;
@@ -62,6 +64,9 @@ const DetailTop = styled.div`
     width: 90%;
     object-fit: cover;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  @media (max-width: 600px) {
+    padding: 20px 0;
   }
 `;
 
@@ -83,6 +88,19 @@ const DetailBottom = styled.div`
   p {
     font-size: 18px;
   }
+  @media (max-width: 600px) {
+    padding: 20px;
+    h5 {
+      font-size: 16px;
+    }
+    h3 {
+      font-size: 28px;
+      padding-bottom: 14px;
+    }
+    p {
+      font-size: 14px;
+    }
+  }
 `;
 
 const Skills = styled.div`
@@ -91,6 +109,12 @@ const Skills = styled.div`
   gap: 18px;
   img {
     width: 30px;
+  }
+  @media (max-width: 600px) {
+    gap: 12px;
+    img {
+      width: 20px;
+    }
   }
 `;
 
@@ -110,6 +134,16 @@ const GithubLink = styled.div`
     border-radius: 30px;
     i {
       font-size: 24px;
+    }
+  }
+  @media (max-width: 600px) {
+    gap: 6px;
+    div {
+      padding: 6px 12px;
+      font-size: 14px;
+      i {
+        font-size: 18px;
+      }
     }
   }
 `;
@@ -160,7 +194,7 @@ function VanilaJS() {
           animate="animate"
         >
           {vanilaJSData.map((item) => (
-            <AnimatePresence>
+            <AnimatePresence key={item.id}>
               <ProjectItem
                 layoutId={item.id + ""}
                 key={item.id}
@@ -175,8 +209,8 @@ function VanilaJS() {
       </Container>
       {vanilaJSData.map((item) =>
         item.id + "" === id ? (
-          <AnimatePresence>
-            <ProjectDetailView layoutId={item.id + ""}>
+          <AnimatePresence key={item.id}>
+            <ProjectDetailView layoutId={item.id + ""} key={item.id}>
               <DetailTop>
                 <img src={item.thumbnail} alt={item.name} />
               </DetailTop>
@@ -185,8 +219,8 @@ function VanilaJS() {
                 <h3>{item.name}</h3>
                 <p>{item.desc}</p>
                 <Skills>
-                  {item.stacks.map((eachStacks) => (
-                    <img src={eachStacks} alt="logo" />
+                  {item.stacks.map((eachStacks, index) => (
+                    <img key={index} src={eachStacks} alt="logo" />
                   ))}
                 </Skills>
                 <GithubLink>
