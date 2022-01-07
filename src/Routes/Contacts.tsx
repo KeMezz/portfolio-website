@@ -1,5 +1,6 @@
 import { AnimatePresence, motion, Variants } from "framer-motion";
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import styled from "styled-components";
 import { windowSizeAtom } from "../atom";
@@ -15,25 +16,49 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: auto;
+  margin: auto 0;
+  gap: 6vw;
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
 `;
 
 const GithubLogo = styled(motion.div)`
-  font-size: 30vw;
+  font-size: 20vw;
   cursor: pointer;
   @media (min-width: 2000px) {
     font-size: 40vh;
   }
   @media (max-width: 1200px) {
-    font-size: 40vh;
+    font-size: 200px;
   }
 `;
 
-const logoVariants: Variants = {
-  initial: { x: -window.innerWidth },
+const Email = styled(motion.div)`
+  font-size: 20vw;
+  cursor: pointer;
+  @media (min-width: 2000px) {
+    font-size: 40vh;
+  }
+  @media (max-width: 1200px) {
+    font-size: 200px;
+  }
+`;
+
+const githubVariants: Variants = {
+  initial: { x: -window.innerWidth, rotateZ: -360 },
   animate: {
     x: 0,
-    rotateZ: 360,
+    rotateZ: 0,
+    transition: { delay: 0.7, duration: 2, type: "spring" },
+  },
+};
+
+const emailVariants: Variants = {
+  initial: { x: window.innerWidth, rotateZ: 360 },
+  animate: {
+    x: 0,
+    rotateZ: 0,
     transition: { delay: 0.7, duration: 2, type: "spring" },
   },
 };
@@ -60,9 +85,16 @@ function Contacts() {
             <GithubLogo
               className="xi-github"
               onClick={() => window.open("https://github.com/KeMezz")}
-              variants={logoVariants}
+              variants={githubVariants}
               initial="initial"
               animate="animate"
+            />
+            <Email
+              className="xi-message"
+              variants={emailVariants}
+              initial="initial"
+              animate="animate"
+              onClick={() => window.open("mailto:pn3scene@gmail.com")}
             />
           </Container>
         </Wrapper>

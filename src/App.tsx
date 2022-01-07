@@ -6,6 +6,7 @@ import { darkTheme, lightTheme } from "./Themes/theme";
 
 const GlobalStyle = createGlobalStyle`
   body {
+    overflow-x: hidden;
     background-color: ${(props) => props.theme.bgColor.sub};
     color: ${(props) => props.theme.textColor.main};
     padding-top: 3vw;

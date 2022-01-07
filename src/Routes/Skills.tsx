@@ -17,14 +17,16 @@ const Container = styled(motion.section)`
 `;
 
 const SkillsGrid = styled(motion.div)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(4, 1fr);
   margin: auto;
   gap: 10vw;
-  @media (max-width: 700px) {
+  @media (max-width: 1000px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     flex-direction: column;
-    gap: 40px;
+    gap: 50px;
   }
 `;
 
@@ -32,7 +34,7 @@ const SkillsItem = styled(motion.img)`
   cursor: grab;
   width: 150px;
   @media (max-width: 700px) {
-    width: 80px;
+    width: 60px;
   }
 `;
 
@@ -99,7 +101,7 @@ function Skills() {
             dragSnapToOrigin
             variants={itemVariants}
             src={tsLogo}
-            alt="SASS 로고"
+            alt="TypeScript 로고"
           ></SkillsItem>
         </SkillsGrid>
       </Container>
