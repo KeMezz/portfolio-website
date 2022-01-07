@@ -6,6 +6,9 @@ import Projects from "./Routes/Projects";
 import Skills from "./Routes/Skills";
 import SkillsDetail from "./Routes/SkillsDetail";
 import styled from "styled-components";
+import { useWindowSize } from "./useWindowSize";
+import { windowSizeAtom } from "./atom";
+import { useRecoilValue } from "recoil";
 
 const Footer = styled.footer`
   width: 100%;
@@ -42,6 +45,8 @@ const Footer = styled.footer`
 `;
 
 function Router() {
+  useWindowSize();
+  const windowSize = useRecoilValue(windowSizeAtom);
   return (
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
@@ -53,7 +58,14 @@ function Router() {
         <Route path="/skills/:id" element={<SkillsDetail />} />
         <Route path="/contacts" element={<Contacts />} />
       </Routes>
-      <Footer>
+      <Footer
+        style={{
+          height:
+            windowSize.width < 1200
+              ? window.innerHeight * 0.13
+              : window.innerHeight * 0.2 - window.innerWidth * 0.03,
+        }}
+      >
         <h3>FRONTEND DEVELOPER PORTFOLIO</h3>
         <p>Copyright 2022. Hyeong Jin. All rights reserved.</p>
       </Footer>

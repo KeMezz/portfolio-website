@@ -17,6 +17,8 @@ import donica from "./Images/js-donica.webp";
 
 import cryptoTracker from "./Images/react-cryptotracker.webp";
 import dnd from "./Images/react-dnd.webp";
+import netflix from "./Images/react-netflix.webp";
+import portfolio from "./Images/react-portfolio.webp";
 
 export const cssData = [];
 
@@ -24,7 +26,7 @@ export const portfolioData = [
   {
     category: "CSS",
     id: 1001,
-    name: "Rodic Davidson Architects Clone",
+    name: "RDA Clone",
     desc: "Rodic Davidson Architects (https://rodicdavidson.co.uk/) 의 외관을 클론한 반응형 웹 사이트입니다. 원본 웹사이트의 현행 디자인과 다소 다른 부분이 있을 수 있습니다. 자세한 설명은 Github 링크를 통해 확인해주시기 바랍니다.",
     stacks: [htmlLogo, cssLogo, sassLogo],
     github:
@@ -36,7 +38,7 @@ export const portfolioData = [
   {
     category: "CSS",
     id: 1002,
-    name: "Horror Movies Clone",
+    name: "Best Horror Movies Clone",
     desc: "호러 영화를 소개하는 웹사이트인 Horror Movies (https://besthorrorscenes.com/) 를 클론한 반응형 웹사이트입니다. 원본 웹사이트의 현재 모습과는 디자인 차이가 있을 수 있습니다. 자세한 설명은 Github 링크를 통해 확인해주시기 바랍니다.",
     stacks: [htmlLogo, cssLogo, sassLogo],
     github: "https://github.com/KeMezz/horror-movies-clone.github.io",
@@ -121,7 +123,7 @@ export const portfolioData = [
     stacks: [reactLogo, tsLogo],
     github: "https://github.com/KeMezz/netflix-clone",
     website: "",
-    thumbnail: cryptoTracker,
+    thumbnail: netflix,
   },
   {
     category: "React JS",
@@ -141,7 +143,7 @@ export const portfolioData = [
     stacks: [reactLogo, tsLogo],
     github: "",
     website: "",
-    thumbnail: cryptoTracker,
+    thumbnail: portfolio,
   },
 ];
 

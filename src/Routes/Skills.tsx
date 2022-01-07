@@ -1,97 +1,107 @@
 import { motion, Variants } from "framer-motion";
+import { useRef } from "react";
+import { Helmet } from "react-helmet";
+import { useRecoilValue } from "recoil";
 import styled from "styled-components";
+import { windowSizeAtom } from "../atom";
 import Title from "../Components/Title";
+import jsLogo from "../Images/logo-js.png";
+import reactLogo from "../Images/logo-react.png";
+import scssLogo from "../Images/logo-scss.png";
+import tsLogo from "../Images/logo-typescript.png";
 
 const Container = styled(motion.section)`
   display: flex;
   flex-direction: column;
-  min-height: 80vh;
   background-color: ${(props) => props.theme.bgColor.main};
-  @media (max-width: 1200px) {
-    min-height: 87vh;
-  }
 `;
 
-const AllSkills = styled.div`
+const SkillsGrid = styled(motion.div)`
   display: flex;
+  justify-content: center;
+  align-items: center;
   margin: auto;
-  gap: 3vw;
-`;
-
-const SkillsCategory = styled(motion.div)`
-  cursor: pointer;
-  place-self: center;
-  border-top: solid 5px ${(props) => props.theme.textColor.main};
-  border-bottom: solid 5px ${(props) => props.theme.textColor.main};
-  min-width: 320px;
-  padding: 40px 50px;
-  text-align: center;
-  h2 {
-    font-size: calc(16px + 1vw);
-    font-weight: 600;
-    padding-bottom: 18px;
-  }
-  h4 {
-    font-size: calc(10px + 0.8vw);
-  }
-  @media (max-width: 1200px) {
-    min-width: 300px;
-    max-width: 400px;
-    padding: 3.6vw 0;
-    border-top: solid 3px ${(props) => props.theme.textColor.main};
-    border-bottom: solid 3px ${(props) => props.theme.textColor.main};
-  }
-  @media (max-width: 769px) {
-    min-width: auto;
-    width: 60vw;
-    h2 {
-      padding-bottom: 3vw;
-    }
+  gap: 10vw;
+  @media (max-width: 700px) {
+    flex-direction: column;
+    gap: 40px;
   }
 `;
 
-const Text = styled(motion.div)``;
+const SkillsItem = styled(motion.img)`
+  cursor: grab;
+  width: 150px;
+  @media (max-width: 700px) {
+    width: 80px;
+  }
+`;
 
-const pcVariants: Variants = {
-  initial: { scaleX: 0 },
-  animate: { scaleX: 1, transition: { duration: 0.5, delay: 0.5 } },
-  hover: {
-    borderTopColor: "crimson",
-    borderBottomColor: "crimson",
-    transition: { duration: 0.3 },
+const ResetBtn = styled.button``;
+
+const gridVariants: Variants = {
+  animate: {
+    transition: {
+      staggerChildren: 0.3,
+    },
   },
 };
 
-const textVariants: Variants = {
-  initial: { opacity: 0, y: 10 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 1 } },
+const itemVariants: Variants = {
+  initial: { scale: 0 },
+  animate: {
+    scale: 1,
+    rotateZ: 360,
+    transition: { duration: 1.5, type: "spring" },
+  },
 };
 
 function Skills() {
+  const windowSize = useRecoilValue(windowSizeAtom);
   return (
     <>
-      <Container initial="initial" animate="animate">
+      <Helmet>
+        <title>Skills | 형진 포트폴리오</title>
+      </Helmet>
+      <Container
+        layoutId="whitebox"
+        style={{
+          height:
+            windowSize.width < 1200
+              ? window.innerHeight * 0.87
+              : window.innerHeight * 0.8,
+        }}
+      >
         <Title titleName="skills" />
-        <AllSkills>
-          <SkillsCategory variants={pcVariants}>
-            <Text variants={textVariants}>
-              <h2>Vanila JS</h2>
-              <h4>ES6 and more..</h4>
-            </Text>
-          </SkillsCategory>
-          <SkillsCategory variants={pcVariants}>
-            <Text variants={textVariants}>
-              <h2>React JS</h2>
-              <h4>Recoil and more..</h4>
-            </Text>
-          </SkillsCategory>
-          <SkillsCategory variants={pcVariants}>
-            <Text variants={textVariants}>
-              <h2>HTML, CSS</h2>
-              <h4>SCSS and more..</h4>
-            </Text>
-          </SkillsCategory>
-        </AllSkills>
+        <SkillsGrid variants={gridVariants} initial="initial" animate="animate">
+          <SkillsItem
+            drag
+            dragSnapToOrigin
+            variants={itemVariants}
+            src={jsLogo}
+            alt="자바스크립트 로고"
+          ></SkillsItem>
+          <SkillsItem
+            drag
+            dragSnapToOrigin
+            variants={itemVariants}
+            src={reactLogo}
+            alt="리액트 로고"
+          ></SkillsItem>
+          <SkillsItem
+            drag
+            dragSnapToOrigin
+            variants={itemVariants}
+            src={scssLogo}
+            alt="SASS 로고"
+          ></SkillsItem>
+          <SkillsItem
+            drag
+            dragSnapToOrigin
+            variants={itemVariants}
+            src={tsLogo}
+            alt="SASS 로고"
+          ></SkillsItem>
+        </SkillsGrid>
       </Container>
     </>
   );

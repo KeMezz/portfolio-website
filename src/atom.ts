@@ -5,7 +5,7 @@ export const dark = atom({
   default: false,
 });
 
-export const windowSize = atom({
+export const windowSizeAtom = atom({
   key: "windowSize",
   default: {
     width: window.innerWidth,

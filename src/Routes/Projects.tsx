@@ -1,16 +1,15 @@
 import { AnimatePresence, motion, Variants } from "framer-motion";
+import { Helmet } from "react-helmet";
 import { useNavigate, useParams } from "react-router-dom";
+import { useRecoilValue } from "recoil";
 import styled from "styled-components";
+import { windowSizeAtom } from "../atom";
 import Title from "../Components/Title";
 import { portfolioData } from "../portfolio";
 
 const Container = styled(motion.section)`
   background-color: ${(props) => props.theme.bgColor.main};
-  min-height: 80vh;
   padding-bottom: 40px;
-  @media (max-width: 1200px) {
-    min-height: 87vh;
-  }
 `;
 
 const ProjectGrid = styled(motion.div)`
@@ -78,11 +77,7 @@ const DetailBottom = styled.div`
   h3 {
     font-size: 40px;
     font-weight: 700;
-    /* padding-bottom: 12px; */
   }
-  /* p {
-    font-size: 18px;
-  } */
   @media (max-width: 1200px) {
     padding: 20px;
     h5 {
@@ -90,11 +85,7 @@ const DetailBottom = styled.div`
     }
     h3 {
       font-size: 28px;
-      /* padding-bottom: 14px; */
     }
-    /* p {
-      font-size: 14px;
-    } */
   }
   @media (max-width: 400px) {
     h5 {
@@ -102,11 +93,7 @@ const DetailBottom = styled.div`
     }
     h3 {
       font-size: 18px;
-      /* padding-bottom: 10px; */
     }
-    /* p {
-      font-size: 12px;
-    } */
   }
 `;
 
@@ -126,7 +113,7 @@ const Skills = styled.div`
 `;
 
 const GithubLink = styled.div`
-  padding-top: 40px;
+  padding-top: 30px;
   display: flex;
   gap: 12px;
   div {
@@ -145,7 +132,6 @@ const GithubLink = styled.div`
   }
   @media (max-width: 1200px) {
     gap: 6px;
-    padding-top: 30px;
     div {
       padding: 6px 12px;
       font-size: 14px;
@@ -199,10 +185,22 @@ const itemVariants: Variants = {
 function Projects() {
   const navigate = useNavigate();
   const { projectId } = useParams();
+  const windowSize = useRecoilValue(windowSizeAtom);
   return (
     <>
+      <Helmet>
+        <title>Projects | 형진 포트폴리오</title>
+      </Helmet>
       <AnimatePresence>
-        <Container layoutId="whitebox">
+        <Container
+          layoutId="whitebox"
+          style={{
+            minHeight:
+              windowSize.width < 1200
+                ? window.innerHeight * 0.87
+                : window.innerHeight * 0.8,
+          }}
+        >
           <Title titleName="projects" />
           <ProjectGrid
             variants={gridVariatns}
@@ -233,7 +231,6 @@ function Projects() {
                 <DetailBottom>
                   <h5>{item.category}</h5>
                   <h3>{item.name}</h3>
-                  {/* <p>{item.desc}</p> */}
                   <Skills>
                     {item.stacks.map((eachStacks, index) => (
                       <img key={index} src={eachStacks} alt="logo" />
@@ -251,8 +248,8 @@ function Projects() {
                       className="website"
                       onClick={() => window.open(item.website)}
                     >
-                      <i className="xi-link"></i>
-                      <span>Open Website</span>
+                      <i className="xi-external-link"></i>
+                      <span>Visit Website</span>
                     </div>
                   </GithubLink>
                 </DetailBottom>

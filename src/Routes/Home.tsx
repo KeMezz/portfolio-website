@@ -3,22 +3,18 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import styled from "styled-components";
-import { windowSize } from "../atom";
-import { useWindowSize } from "../useWindowSize";
+import { windowSizeAtom } from "../atom";
+import { Helmet } from "react-helmet";
 
 const Container = styled(motion.nav)`
   overflow: hidden;
   background-color: ${(props) => props.theme.bgColor.main};
-  height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 5vw 0;
   gap: 3vw;
-  @media (max-width: 1200px) {
-    min-height: 87vh;
-  }
 `;
 
 const Row = styled(motion.div)`
@@ -32,11 +28,9 @@ const Row = styled(motion.div)`
     1px -1px 0 ${(props) => props.theme.textColor.sub},
     -1px 1px 0 ${(props) => props.theme.textColor.sub},
     1px 1px 0 ${(props) => props.theme.textColor.sub};
-  @media (min-width: 1200px) {
-    &:hover {
-      text-shadow: none;
-      color: crimson;
-    }
+  &:hover {
+    text-shadow: none;
+    color: crimson;
   }
   .point {
     text-shadow: none;
@@ -53,19 +47,29 @@ const Row = styled(motion.div)`
 function Home() {
   const navigate = useNavigate();
   const rowAnimation = useAnimation();
-  const size = useRecoilValue(windowSize);
+  const windowSize = useRecoilValue(windowSizeAtom);
   useEffect(() => {
     rowAnimation.start({ x: 0 });
   }, [rowAnimation]);
-  useWindowSize();
   const onMenuClick = async (navi: string, direction: number) => {
     await rowAnimation.start({ x: direction });
     await navigate(`/${navi}`);
   };
   return (
     <>
+      <Helmet>
+        <title>Home | 형진 포트폴리오</title>
+      </Helmet>
       <AnimatePresence>
-        <Container layoutId="whitebox">
+        <Container
+          layoutId="whitebox"
+          style={{
+            height:
+              windowSize.width < 1200
+                ? window.innerHeight * 0.87
+                : window.innerHeight * 0.8,
+          }}
+        >
           <Row
             key="hyeongjin"
             initial={{ x: 5000 }}
@@ -73,7 +77,8 @@ function Home() {
             transition={{ duration: 1 }}
             onClick={() => onMenuClick("hyeongjin", 5000)}
           >
-            {size.width > 1200 && size.height * 2 > size.width ? (
+            {windowSize.width > 1200 &&
+            windowSize.height * 2 > windowSize.width ? (
               <h1>
                 yeongjin<span className="point">hyeongjin</span>
                 hyeongjinhyeongjin
@@ -93,7 +98,8 @@ function Home() {
             transition={{ duration: 0.9 }}
             onClick={() => onMenuClick("projects", -5000)}
           >
-            {size.width > 1200 && size.height * 2 > size.width ? (
+            {windowSize.width > 1200 &&
+            windowSize.height * 2 > windowSize.width ? (
               <h1>
                 ojectsprojects<span className="point">projects</span>
                 projectsprojects
@@ -113,7 +119,8 @@ function Home() {
             transition={{ duration: 0.8 }}
             onClick={() => onMenuClick("skills", 5000)}
           >
-            {size.width > 1200 && size.height * 2 > size.width ? (
+            {windowSize.width > 1200 &&
+            windowSize.height * 2 > windowSize.width ? (
               <h1>
                 llsskillsskills<span className="point">skills</span>
                 skillsskills
@@ -133,7 +140,8 @@ function Home() {
             transition={{ duration: 0.6 }}
             onClick={() => onMenuClick("contacts", -5000)}
           >
-            {size.width > 1200 && size.height * 2 > size.width ? (
+            {windowSize.width > 1200 &&
+            windowSize.height * 2 > windowSize.width ? (
               <h1>
                 tscontactscontacts<span className="point">contacts</span>
                 contacts

@@ -1,5 +1,8 @@
 import { AnimatePresence, motion, Variants } from "framer-motion";
+import { Helmet } from "react-helmet";
+import { useRecoilValue } from "recoil";
 import styled from "styled-components";
+import { windowSizeAtom } from "../atom";
 import Title from "../Components/Title";
 import memoji from "../Images/memoji.webp";
 
@@ -47,10 +50,22 @@ const memojiVariants: Variants = {
 };
 
 function Hyeongjin() {
+  const windowSize = useRecoilValue(windowSizeAtom);
   return (
     <>
+      <Helmet>
+        <title>About | Hyeongjin Portfolio</title>
+      </Helmet>
       <AnimatePresence>
-        <Wrapper layoutId="whitebox">
+        <Wrapper
+          layoutId="whitebox"
+          style={{
+            height:
+              windowSize.width < 1200
+                ? window.innerHeight * 0.87
+                : window.innerHeight * 0.8,
+          }}
+        >
           <Title titleName="hyeongjin" />
           <Container>
             {/* <Memoji
