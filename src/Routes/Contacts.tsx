@@ -1,6 +1,5 @@
 import { AnimatePresence, motion, Variants } from "framer-motion";
 import { Helmet } from "react-helmet";
-import { Link } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import styled from "styled-components";
 import { windowSizeAtom } from "../atom";
