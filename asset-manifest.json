@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/portfolio-website/static/css/main.e5f2aeff.css",
-    "main.js": "/portfolio-website/static/js/main.7c0f5991.js",
+    "main.js": "/portfolio-website/static/js/main.9d3239f0.js",
     "static/media/react-netflix.webp": "/portfolio-website/static/media/react-netflix.f2f51e36bd2cdc5757cc.webp",
     "static/media/css-zoo.webp": "/portfolio-website/static/media/css-zoo.462414ba3fe72118d615.webp",
     "static/media/css-rodic.webp": "/portfolio-website/static/media/css-rodic.8c7c37a8443184b6e1d2.webp",
@@ -10,6 +10,7 @@
     "static/media/js-momentum.webp": "/portfolio-website/static/media/js-momentum.abb3d2aa52d41cb8197c.webp",
     "static/media/js-nike.webp": "/portfolio-website/static/media/js-nike.aca7fe2c615fb9ab8f10.webp",
     "static/media/css-schwartz.webp": "/portfolio-website/static/media/css-schwartz.7a825e9cb9c940b11403.webp",
+    "static/media/memoji.webp": "/portfolio-website/static/media/memoji.1e68433e49ab3c22175a.webp",
     "static/media/react-cryptotracker.webp": "/portfolio-website/static/media/react-cryptotracker.fb906d4ebc84cab0d0ec.webp",
     "static/media/react-portfolio.webp": "/portfolio-website/static/media/react-portfolio.775fd1dbe7c08d5025bc.webp",
     "static/media/logo-react.png": "/portfolio-website/static/media/logo-react.4b0fff0f6ae4a8c6dde0.png",
@@ -22,10 +23,10 @@
     "static/media/logo-js.png": "/portfolio-website/static/media/logo-js.7903556225613d4b63e8.png",
     "index.html": "/portfolio-website/index.html",
     "main.e5f2aeff.css.map": "/portfolio-website/static/css/main.e5f2aeff.css.map",
-    "main.7c0f5991.js.map": "/portfolio-website/static/js/main.7c0f5991.js.map"
+    "main.9d3239f0.js.map": "/portfolio-website/static/js/main.9d3239f0.js.map"
   },
   "entrypoints": [
     "static/css/main.e5f2aeff.css",
-    "static/js/main.7c0f5991.js"
+    "static/js/main.9d3239f0.js"
   ]
 }
