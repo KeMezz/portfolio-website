@@ -9,6 +9,7 @@ import { portfolioData } from "../portfolio";
 
 const Container = styled(motion.section)`
   background-color: ${(props) => props.theme.bgColor.main};
+  width: 100%;
   padding-bottom: 40px;
 `;
 
