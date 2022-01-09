@@ -194,7 +194,7 @@ function Projects() {
       </Helmet>
       <AnimatePresence>
         <Container
-          layoutId="whitebox"
+          // layoutId="container"
           style={{
             minHeight:
               windowSize.width < 1200

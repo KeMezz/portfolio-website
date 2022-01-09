@@ -38,22 +38,21 @@ const SkillsItem = styled(motion.img)`
   }
 `;
 
-const ResetBtn = styled.button``;
-
 const gridVariants: Variants = {
   animate: {
     transition: {
+      delayChildren: 0.5,
       staggerChildren: 0.3,
     },
   },
 };
 
 const itemVariants: Variants = {
-  initial: { scale: 0 },
+  initial: { y: 15, opacity: 0 },
   animate: {
-    scale: 1,
-    rotateZ: 360,
-    transition: { duration: 1.5, type: "spring" },
+    y: 0,
+    opacity: 1,
+    transition: { duration: 0.5 },
   },
 };
 
@@ -65,7 +64,6 @@ function Skills() {
         <title>Skills | 형진 포트폴리오</title>
       </Helmet>
       <Container
-        layoutId="whitebox"
         style={{
           height:
             windowSize.width < 1200

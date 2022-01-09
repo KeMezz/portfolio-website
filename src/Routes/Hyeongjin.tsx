@@ -13,6 +13,7 @@ import jsLogo from "../Images/logo-js.png";
 import tsLogo from "../Images/logo-typescript.png";
 import sassLogo from "../Images/logo-scss.png";
 import reactLogo from "../Images/logo-react.png";
+import { useNavigate } from "react-router-dom";
 
 const Wrapper = styled(motion.div)`
   background-color: ${(props) => props.theme.bgColor.main};
@@ -39,6 +40,9 @@ const Introduction = styled(motion.div)`
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
     gap: 30px;
+  }
+  @media (max-width: 768px) {
+    margin-top: 10vh;
   }
 `;
 const IntroductionText = styled(motion.div)`
@@ -190,6 +194,23 @@ const SecBImages = styled.div`
   }
 `;
 
+const SectionC = styled.section`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 50vh;
+  h3 {
+    font-size: calc(11px + 1vw);
+    line-height: 1.8;
+    font-weight: 500;
+    text-align: center;
+    span {
+      color: #9d32eb;
+      cursor: pointer;
+    }
+  }
+`;
+
 const memojiVariants: Variants = {
   initial: { opacity: 0, y: 100 },
   animate: { opacity: 1, y: 0, transition: { delay: 0.3, duration: 1 } },
@@ -197,14 +218,15 @@ const memojiVariants: Variants = {
 
 function Hyeongjin() {
   const windowSize = useRecoilValue(windowSizeAtom);
+  const navigate = useNavigate();
   return (
     <>
       <Helmet>
-        <title>About | Hyeongjin Portfolio</title>
+        <title>About | 형진 포트폴리오</title>
       </Helmet>
       <AnimatePresence>
         <Wrapper
-          layoutId="whitebox"
+          // layoutId="container"
           style={{
             minHeight:
               windowSize.width < 1200
@@ -217,7 +239,7 @@ function Hyeongjin() {
               style={{
                 height:
                   windowSize.width < 1200
-                    ? window.innerHeight * 0.8
+                    ? window.innerHeight * 0.7
                     : window.innerHeight * 0.65,
               }}
             >
@@ -327,31 +349,63 @@ function Hyeongjin() {
                   whileInView={{ opacity: 0.7, y: 0 }}
                   transition={{ duration: 1 }}
                   src={jsLogo}
-                  alt="CSS 로고"
+                  alt="JavaScript 로고"
                 />
                 <motion.img
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 0.7, y: 0 }}
                   transition={{ duration: 1 }}
                   src={tsLogo}
-                  alt="CSS 로고"
+                  alt="TypeScript 로고"
                 />
                 <motion.img
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 0.7, y: 0 }}
                   transition={{ duration: 1 }}
                   src={reactLogo}
-                  alt="CSS 로고"
+                  alt="React JS 로고"
                 />
                 <motion.img
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 0.7, y: 0 }}
                   transition={{ duration: 1 }}
                   src={sassLogo}
-                  alt="CSS 로고"
+                  alt="SASS 로고"
                 />
               </SecBImages>
             </SectionB>
+            <SectionC
+              style={{
+                minHeight:
+                  windowSize.width < 1200
+                    ? window.innerHeight * 0.6
+                    : window.innerHeight * 0.4,
+              }}
+            >
+              <motion.h3
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1 }}
+              >
+                포트폴리오는 계속해서 업데이트 될 예정입니다.
+              </motion.h3>
+              <motion.h3
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1 }}
+              >
+                공개한 프로젝트는{" "}
+                <span
+                  onClick={() => {
+                    window.scrollTo(0, 0);
+                    navigate("/projects");
+                  }}
+                >
+                  이 곳
+                </span>
+                에서 확인하실 수 있습니다.
+              </motion.h3>
+            </SectionC>
           </Container>
         </Wrapper>
       </AnimatePresence>

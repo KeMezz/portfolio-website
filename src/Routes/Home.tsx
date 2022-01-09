@@ -62,7 +62,6 @@ function Home() {
       </Helmet>
       <AnimatePresence>
         <Container
-          layoutId="whitebox"
           style={{
             height:
               windowSize.width < 1200

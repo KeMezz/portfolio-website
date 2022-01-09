@@ -11,7 +11,7 @@ const Wrapper = styled(motion.section)`
   flex-direction: column;
 `;
 
-const Container = styled.div`
+const Container = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,7 +29,7 @@ const GithubLogo = styled(motion.div)`
     font-size: 40vh;
   }
   @media (max-width: 1200px) {
-    font-size: 200px;
+    font-size: 150px;
   }
 `;
 
@@ -40,25 +40,25 @@ const Email = styled(motion.div)`
     font-size: 40vh;
   }
   @media (max-width: 1200px) {
-    font-size: 200px;
+    font-size: 150px;
   }
 `;
 
-const githubVariants: Variants = {
-  initial: { x: -window.innerWidth, rotateZ: -360 },
+const containerVariants: Variants = {
   animate: {
-    x: 0,
-    rotateZ: 0,
-    transition: { delay: 0.7, duration: 2, type: "spring" },
+    transition: {
+      delayChildren: 0.5,
+      staggerChildren: 0.3,
+    },
   },
 };
 
-const emailVariants: Variants = {
-  initial: { x: window.innerWidth, rotateZ: 360 },
+const hyperlinkVariants: Variants = {
+  initial: { y: 30, opacity: 0 },
   animate: {
-    x: 0,
-    rotateZ: 0,
-    transition: { delay: 0.7, duration: 2, type: "spring" },
+    y: 0,
+    opacity: 1,
+    transition: { duration: 0.5 },
   },
 };
 
@@ -71,7 +71,6 @@ function Contacts() {
       </Helmet>
       <AnimatePresence>
         <Wrapper
-          layoutId="whitebox"
           style={{
             minHeight:
               windowSize.width < 1200
@@ -80,19 +79,19 @@ function Contacts() {
           }}
         >
           <Title titleName="contacts" />
-          <Container>
+          <Container
+            variants={containerVariants}
+            initial="initial"
+            animate="animate"
+          >
             <GithubLogo
               className="xi-github"
               onClick={() => window.open("https://github.com/KeMezz")}
-              variants={githubVariants}
-              initial="initial"
-              animate="animate"
+              variants={hyperlinkVariants}
             />
             <Email
-              className="xi-message"
-              variants={emailVariants}
-              initial="initial"
-              animate="animate"
+              className="xi-gmail"
+              variants={hyperlinkVariants}
               onClick={() => window.open("mailto:pn3scene@gmail.com")}
             />
           </Container>

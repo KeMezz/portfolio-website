@@ -4,7 +4,6 @@ import Home from "./Routes/Home";
 import Hyeongjin from "./Routes/Hyeongjin";
 import Projects from "./Routes/Projects";
 import Skills from "./Routes/Skills";
-import SkillsDetail from "./Routes/SkillsDetail";
 import styled from "styled-components";
 import { useWindowSize } from "./useWindowSize";
 import { windowSizeAtom } from "./atom";
@@ -55,7 +54,6 @@ function Router() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/projects/:projectId" element={<Projects />} />
         <Route path="/skills" element={<Skills />} />
-        <Route path="/skills/:id" element={<SkillsDetail />} />
         <Route path="/contacts" element={<Contacts />} />
       </Routes>
       <Footer
