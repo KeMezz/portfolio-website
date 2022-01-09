@@ -1,11 +1,4 @@
-import {
-  AnimatePresence,
-  motion,
-  useAnimation,
-  useElementScroll,
-  useViewportScroll,
-  Variants,
-} from "framer-motion";
+import { AnimatePresence, motion, Variants } from "framer-motion";
 import { Helmet } from "react-helmet";
 import { useRecoilValue } from "recoil";
 import styled from "styled-components";
@@ -14,7 +7,12 @@ import memoji from "../Images/memoji.webp";
 import cryptoImg from "../Images/react-cryptotracker.webp";
 import momentumImg from "../Images/js-momentum.webp";
 import portfolioImg from "../Images/react-portfolio.webp";
-import { useEffect, useRef } from "react";
+import htmlLogo from "../Images/logo-html.png";
+import cssLogo from "../Images/logo-css.png";
+import jsLogo from "../Images/logo-js.png";
+import tsLogo from "../Images/logo-typescript.png";
+import sassLogo from "../Images/logo-scss.png";
+import reactLogo from "../Images/logo-react.png";
 
 const Wrapper = styled(motion.div)`
   background-color: ${(props) => props.theme.bgColor.main};
@@ -28,7 +26,7 @@ const Container = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0 8vw;
+  padding: 0 7vw;
   padding-top: 5vw;
   padding-bottom: 10vw;
 `;
@@ -48,7 +46,7 @@ const IntroductionText = styled(motion.div)`
   flex-direction: column;
   h2 {
     padding-top: 12px;
-    font-size: 36px;
+    font-size: calc(12px + 1vw);
     line-height: 1.6;
     font-weight: 500;
   }
@@ -69,10 +67,13 @@ const Highlight = styled(motion.div)`
   width: fit-content;
   h1 {
     position: absolute;
-    bottom: calc(78px / 2);
-    font-size: 78px;
+    bottom: 2vw;
+    font-size: calc(20px + 3vw);
     font-weight: 900;
     position: relative;
+  }
+  @media (max-width: 1200px) {
+    height: 30px;
   }
 `;
 
@@ -82,6 +83,7 @@ const Memoji = styled(motion.img)`
   min-width: 240px;
   @media (max-width: 1200px) {
     width: 50%;
+    align-self: end;
   }
 `;
 
@@ -94,13 +96,16 @@ const ScrollIndicator = styled(motion.div)`
   width: 100%;
   gap: 20px;
   color: #999;
+  font-size: 50px;
   h3 {
-    font-size: 50px;
     font-weight: 200;
     text-transform: uppercase;
   }
-  i {
-    font-size: 50px;
+  @media (max-width: 1200px) {
+    font-size: 30px;
+  }
+  @media (max-width: 600px) {
+    font-size: 20px;
   }
 `;
 
@@ -109,11 +114,11 @@ const SectionA = styled(motion.section)`
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 100px;
+  gap: 10vh;
   position: relative;
   h3 {
     text-align: right;
-    font-size: 40px;
+    font-size: calc(12px + 1vw);
     line-height: 1.8;
     font-weight: 500;
     top: calc(40vh - 3vw);
@@ -134,7 +139,56 @@ const SectionA = styled(motion.section)`
   }
 `;
 
-const sectionB = styled.section``;
+const SectionB = styled.section`
+  margin-top: 50vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  h3 {
+    position: sticky;
+    font-size: calc(12px + 1vw);
+    line-height: 1.8;
+    font-weight: 500;
+    top: calc(40vh - 3vw);
+    z-index: 10;
+  }
+`;
+
+const SecBImages = styled.div`
+  position: relative;
+  height: 100vh;
+  margin-top: 30vh;
+  img {
+    position: absolute;
+    width: 12vw;
+    max-width: 150px;
+    opacity: 0.7;
+    :nth-child(1) {
+      left: 8vw;
+      top: 0%;
+    }
+    :nth-child(2) {
+      right: 2.2vw;
+      top: 30%;
+    }
+    :nth-child(3) {
+      left: 3vw;
+      top: 40%;
+    }
+    :nth-child(4) {
+      right: 20vw;
+      top: 70%;
+    }
+    :nth-child(5) {
+      left: 22vw;
+      top: 50%;
+    }
+    :nth-child(6) {
+      right: 30vw;
+      top: 20%;
+    }
+  }
+`;
 
 const memojiVariants: Variants = {
   initial: { opacity: 0, y: 100 },
@@ -143,17 +197,6 @@ const memojiVariants: Variants = {
 
 function Hyeongjin() {
   const windowSize = useRecoilValue(windowSizeAtom);
-  const { scrollY } = useViewportScroll();
-  useEffect(
-    () =>
-      scrollY.onChange(() =>
-        scrollY.get() > 650
-          ? aTextAnimation.start({ position: "sticky" })
-          : aTextAnimation.start({ position: "unset" })
-      ),
-    [scrollY]
-  );
-  const aTextAnimation = useAnimation();
   return (
     <>
       <Helmet>
@@ -170,7 +213,14 @@ function Hyeongjin() {
           }}
         >
           <Container>
-            <Introduction style={{ height: window.innerHeight * 0.65 }}>
+            <Introduction
+              style={{
+                height:
+                  windowSize.width < 1200
+                    ? window.innerHeight * 0.8
+                    : window.innerHeight * 0.65,
+              }}
+            >
               <IntroductionText>
                 <Highlight
                   initial={{ scaleX: 0 }}
@@ -245,6 +295,63 @@ function Hyeongjin() {
                 alt="포트폴리오 웹사이트 썸네일"
               />
             </SectionA>
+            <SectionB>
+              <motion.h3
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1 }}
+              >
+                언제나 새로운 것을 배우고 싶어하고,
+                <br />
+                어제보다 더 나은 방법으로
+                <br />
+                코드를 작성하기 위해 고민합니다.
+              </motion.h3>
+              <SecBImages>
+                <motion.img
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 0.7, y: 0 }}
+                  transition={{ duration: 1 }}
+                  src={htmlLogo}
+                  alt="HTML 로고"
+                />
+                <motion.img
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 0.7, y: 0 }}
+                  transition={{ duration: 1 }}
+                  src={cssLogo}
+                  alt="CSS 로고"
+                />
+                <motion.img
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 0.7, y: 0 }}
+                  transition={{ duration: 1 }}
+                  src={jsLogo}
+                  alt="CSS 로고"
+                />
+                <motion.img
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 0.7, y: 0 }}
+                  transition={{ duration: 1 }}
+                  src={tsLogo}
+                  alt="CSS 로고"
+                />
+                <motion.img
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 0.7, y: 0 }}
+                  transition={{ duration: 1 }}
+                  src={reactLogo}
+                  alt="CSS 로고"
+                />
+                <motion.img
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 0.7, y: 0 }}
+                  transition={{ duration: 1 }}
+                  src={sassLogo}
+                  alt="CSS 로고"
+                />
+              </SecBImages>
+            </SectionB>
           </Container>
         </Wrapper>
       </AnimatePresence>
