@@ -100,7 +100,7 @@ const ScrollIndicator = styled(motion.div)`
   width: 100%;
   gap: 20px;
   color: #999;
-  font-size: 50px;
+  font-size: 40px;
   h3 {
     font-weight: 200;
     text-transform: uppercase;
@@ -128,12 +128,17 @@ const SectionA = styled(motion.section)`
     top: calc(40vh - 3vw);
     position: sticky;
     z-index: 10;
+    text-shadow: -1px -1px 0 ${(props) => props.theme.bgColor.main},
+      1px -1px 0 ${(props) => props.theme.bgColor.main},
+      -1px 1px 0 ${(props) => props.theme.bgColor.main},
+      1px 1px 0 ${(props) => props.theme.bgColor.main};
+  }
   }
   img {
     padding: 0 3vw;
     width: 80%;
     max-width: 1000px;
-    opacity: 0.7;
+    opacity: 0.6;
     &:nth-child(3) {
       align-self: flex-end;
     }
@@ -155,6 +160,11 @@ const SectionB = styled.section`
     font-weight: 500;
     top: calc(40vh - 3vw);
     z-index: 10;
+    text-shadow: -1px -1px 0 ${(props) => props.theme.bgColor.main},
+      1px -1px 0 ${(props) => props.theme.bgColor.main},
+      -1px 1px 0 ${(props) => props.theme.bgColor.main},
+      1px 1px 0 ${(props) => props.theme.bgColor.main};
+  }
   }
 `;
 
@@ -166,7 +176,7 @@ const SecBImages = styled.div`
     position: absolute;
     width: 12vw;
     max-width: 150px;
-    opacity: 0.7;
+    opacity: 0.6;
     :nth-child(1) {
       left: 8vw;
       top: 0%;
@@ -226,7 +236,6 @@ function Hyeongjin() {
       </Helmet>
       <AnimatePresence>
         <Wrapper
-          // layoutId="container"
           style={{
             minHeight:
               windowSize.width < 1200
@@ -297,21 +306,21 @@ function Hyeongjin() {
               </motion.h3>
               <motion.img
                 initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 0.7, y: 0 }}
+                whileInView={{ opacity: 0.6, y: 0 }}
                 transition={{ duration: 1 }}
                 src={cryptoImg}
                 alt="Crypto Tracker 웹사이트 썸네일"
               />
               <motion.img
                 initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 0.7, y: 0 }}
+                whileInView={{ opacity: 0.6, y: 0 }}
                 transition={{ duration: 1 }}
                 src={momentumImg}
                 alt="Momentum 클론 웹사이트 썸네일"
               />
               <motion.img
                 initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 0.7, y: 0 }}
+                whileInView={{ opacity: 0.6, y: 0 }}
                 transition={{ duration: 1 }}
                 src={portfolioImg}
                 alt="포트폴리오 웹사이트 썸네일"
@@ -332,42 +341,42 @@ function Hyeongjin() {
               <SecBImages>
                 <motion.img
                   initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 0.7, y: 0 }}
+                  whileInView={{ opacity: 0.6, y: 0 }}
                   transition={{ duration: 1 }}
                   src={htmlLogo}
                   alt="HTML 로고"
                 />
                 <motion.img
                   initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 0.7, y: 0 }}
+                  whileInView={{ opacity: 0.6, y: 0 }}
                   transition={{ duration: 1 }}
                   src={cssLogo}
                   alt="CSS 로고"
                 />
                 <motion.img
                   initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 0.7, y: 0 }}
+                  whileInView={{ opacity: 0.6, y: 0 }}
                   transition={{ duration: 1 }}
                   src={jsLogo}
                   alt="JavaScript 로고"
                 />
                 <motion.img
                   initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 0.7, y: 0 }}
+                  whileInView={{ opacity: 0.6, y: 0 }}
                   transition={{ duration: 1 }}
                   src={tsLogo}
                   alt="TypeScript 로고"
                 />
                 <motion.img
                   initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 0.7, y: 0 }}
+                  whileInView={{ opacity: 0.6, y: 0 }}
                   transition={{ duration: 1 }}
                   src={reactLogo}
                   alt="React JS 로고"
                 />
                 <motion.img
                   initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 0.7, y: 0 }}
+                  whileInView={{ opacity: 0.6, y: 0 }}
                   transition={{ duration: 1 }}
                   src={sassLogo}
                   alt="SASS 로고"
@@ -394,7 +403,7 @@ function Hyeongjin() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1 }}
               >
-                공개한 프로젝트는{" "}
+                공개한 프로젝트는
                 <span
                   onClick={() => {
                     window.scrollTo(0, 0);
