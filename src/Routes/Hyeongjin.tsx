@@ -401,7 +401,7 @@ function Hyeongjin() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1 }}
               >
-                공개한 프로젝트는
+                공개한 프로젝트는{" "}
                 <span
                   onClick={() => {
                     window.scrollTo(0, 0);
