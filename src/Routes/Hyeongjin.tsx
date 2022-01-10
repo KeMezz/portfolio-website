@@ -133,7 +133,6 @@ const SectionA = styled(motion.section)`
       -1px 1px 0 ${(props) => props.theme.bgColor.main},
       1px 1px 0 ${(props) => props.theme.bgColor.main};
   }
-  }
   img {
     padding: 0 3vw;
     width: 80%;
@@ -164,7 +163,6 @@ const SectionB = styled.section`
       1px -1px 0 ${(props) => props.theme.bgColor.main},
       -1px 1px 0 ${(props) => props.theme.bgColor.main},
       1px 1px 0 ${(props) => props.theme.bgColor.main};
-  }
   }
 `;
 
