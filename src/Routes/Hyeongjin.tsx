@@ -166,7 +166,7 @@ const SectionB = styled.section`
   }
 `;
 
-const SecBImages = styled.div`
+const SecBImages = styled(motion.div)`
   position: relative;
   height: 100vh;
   margin-top: 30vh;
@@ -218,6 +218,11 @@ const SectionC = styled.section`
     }
   }
 `;
+
+const imgVariants: Variants = {
+  initial: { opacity: 0, y: 30 },
+  whileInView: { opacity: 0.6, y: 0, transition: { duration: 1 } },
+};
 
 const memojiVariants: Variants = {
   initial: { opacity: 0, y: 100 },
@@ -288,7 +293,7 @@ function Hyeongjin() {
               <motion.h3>scroll</motion.h3>
               <motion.i className="xi-angle-down-thin"></motion.i>
             </ScrollIndicator>
-            <SectionA>
+            <SectionA initial="initial">
               <motion.h3
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -303,23 +308,20 @@ function Hyeongjin() {
                 개발하고 있습니다.
               </motion.h3>
               <motion.img
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 0.6, y: 0 }}
-                transition={{ duration: 1 }}
+                variants={imgVariants}
+                whileInView="whileInView"
                 src={cryptoImg}
                 alt="Crypto Tracker 웹사이트 썸네일"
               />
               <motion.img
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 0.6, y: 0 }}
-                transition={{ duration: 1 }}
+                variants={imgVariants}
+                whileInView="whileInView"
                 src={momentumImg}
                 alt="Momentum 클론 웹사이트 썸네일"
               />
               <motion.img
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 0.6, y: 0 }}
-                transition={{ duration: 1 }}
+                variants={imgVariants}
+                whileInView="whileInView"
                 src={portfolioImg}
                 alt="포트폴리오 웹사이트 썸네일"
               />
@@ -336,46 +338,40 @@ function Hyeongjin() {
                 <br />
                 코드를 작성하기 위해 고민합니다.
               </motion.h3>
-              <SecBImages>
+              <SecBImages initial="initial">
                 <motion.img
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 0.6, y: 0 }}
-                  transition={{ duration: 1 }}
+                  variants={imgVariants}
+                  whileInView="whileInView"
                   src={htmlLogo}
                   alt="HTML 로고"
                 />
                 <motion.img
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 0.6, y: 0 }}
-                  transition={{ duration: 1 }}
+                  variants={imgVariants}
+                  whileInView="whileInView"
                   src={cssLogo}
                   alt="CSS 로고"
                 />
                 <motion.img
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 0.6, y: 0 }}
-                  transition={{ duration: 1 }}
+                  variants={imgVariants}
+                  whileInView="whileInView"
                   src={jsLogo}
                   alt="JavaScript 로고"
                 />
                 <motion.img
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 0.6, y: 0 }}
-                  transition={{ duration: 1 }}
+                  variants={imgVariants}
+                  whileInView="whileInView"
                   src={tsLogo}
                   alt="TypeScript 로고"
                 />
                 <motion.img
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 0.6, y: 0 }}
-                  transition={{ duration: 1 }}
+                  variants={imgVariants}
+                  whileInView="whileInView"
                   src={reactLogo}
                   alt="React JS 로고"
                 />
                 <motion.img
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 0.6, y: 0 }}
-                  transition={{ duration: 1 }}
+                  variants={imgVariants}
+                  whileInView="whileInView"
                   src={sassLogo}
                   alt="SASS 로고"
                 />
