@@ -8,6 +8,7 @@ import styled from "styled-components";
 import { useWindowSize } from "./useWindowSize";
 import { windowSizeAtom } from "./atom";
 import { useRecoilValue } from "recoil";
+import NotFound from "./Routes/NotFound";
 
 const Footer = styled.footer`
   width: 100%;
@@ -55,6 +56,7 @@ function Router() {
         <Route path="/projects/:projectId" element={<Projects />} />
         <Route path="/skills" element={<Skills />} />
         <Route path="/contacts" element={<Contacts />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer
         style={{
