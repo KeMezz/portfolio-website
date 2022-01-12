@@ -208,6 +208,7 @@ const SectionC = styled.section`
   flex-direction: column;
   justify-content: center;
   margin-top: 50vh;
+  gap: 30px;
   h3 {
     font-size: calc(11px + 1vw);
     line-height: 1.8;
@@ -217,6 +218,30 @@ const SectionC = styled.section`
       color: #9d32eb;
       cursor: pointer;
     }
+  }
+`;
+
+const GoHome = styled(motion.div)`
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  border: solid 3px ${(props) => props.theme.textColor.main};
+  width: fit-content;
+  border-radius: 12px;
+  padding: 12px 30px;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  @media (max-width: 1200px) {
+    border: solid 2px ${(props) => props.theme.textColor.main};
+    padding: 8px 20px;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  @media (max-width: 600px) {
+    font-size: 14px;
+    padding: 6px 12px;
   }
 `;
 
@@ -392,12 +417,7 @@ function Hyeongjin() {
                 transition={{ duration: 1 }}
               >
                 포트폴리오는 계속해서 업데이트 될 예정입니다.
-              </motion.h3>
-              <motion.h3
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1 }}
-              >
+                <br />
                 공개한 프로젝트는{" "}
                 <span
                   onClick={() => {
@@ -413,6 +433,20 @@ function Hyeongjin() {
                 </span>
                 에서 확인하실 수 있습니다.
               </motion.h3>
+              <GoHome
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1 }}
+                onClick={() => {
+                  ReactGA.event({
+                    category: "Click Internal Link",
+                    action: "형진 페이지에서 곧바로 홈 페이지로 이동함",
+                  });
+                  navigate("/");
+                }}
+              >
+                홈으로 돌아가기
+              </GoHome>
             </SectionC>
           </Container>
         </Wrapper>

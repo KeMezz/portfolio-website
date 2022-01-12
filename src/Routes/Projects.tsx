@@ -174,6 +174,26 @@ const Overlay = styled(motion.div)`
   background-color: rgba(0, 0, 0, 0.3);
 `;
 
+const GoHome = styled(motion.div)`
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  border: solid 3px ${(props) => props.theme.textColor.main};
+  width: fit-content;
+  border-radius: 12px;
+  padding: 12px 30px;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  @media (max-width: 1200px) {
+    border: solid 2px ${(props) => props.theme.textColor.main};
+    padding: 8px 20px;
+    font-size: 16px;
+    font-weight: 500;
+  }
+`;
+
 const gridVariatns: Variants = {
   animate: {
     transition: {
@@ -244,6 +264,21 @@ function Projects() {
               </AnimatePresence>
             ))}
           </ProjectGrid>
+          <GoHome
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1 }}
+            onClick={() => {
+              ReactGA.event({
+                category: "Click Internal Link",
+                action: "프로젝트 페이지에서 곧바로 홈 페이지로 이동함",
+              });
+              navigate("/");
+            }}
+          >
+            <h3>홈으로 돌아가기</h3>
+          </GoHome>
         </Container>
         {portfolioData.map((item) =>
           item.id + "" === projectId ? (

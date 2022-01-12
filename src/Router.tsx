@@ -1,4 +1,4 @@
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter, Link, useMatch } from "react-router-dom";
 import Contacts from "./Routes/Contacts";
 import Home from "./Routes/Home";
 import Hyeongjin from "./Routes/Hyeongjin";
@@ -58,17 +58,19 @@ function Router() {
         <Route path="contacts" element={<Contacts />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer
-        style={{
-          height:
-            windowSize.width < 1200
-              ? window.innerHeight * 0.13
-              : window.innerHeight * 0.2 - window.innerWidth * 0.03,
-        }}
-      >
-        <h3>FRONTEND DEVELOPER PORTFOLIO</h3>
-        <p>Copyright 2022. Hyeong Jin. All rights reserved.</p>
-      </Footer>
+      <Link to="/">
+        <Footer
+          style={{
+            height:
+              windowSize.width < 1200
+                ? window.innerHeight * 0.13
+                : window.innerHeight * 0.2 - window.innerWidth * 0.03,
+          }}
+        >
+          <h3>FRONTEND DEVELOPER PORTFOLIO</h3>
+          <p>Copyright 2022. Hyeong Jin. All rights reserved.</p>
+        </Footer>
+      </Link>
     </BrowserRouter>
   );
 }
