@@ -26,6 +26,7 @@ function App() {
   const isDark = useRecoilValue(dark);
   useEffect(() => {
     ReactGA.initialize("UA-216914033-1");
+    ReactGA.set({ page: window.location.pathname });
     ReactGA.pageview(window.location.pathname + window.location.search);
   }, []);
   return (
