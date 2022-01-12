@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { windowSizeAtom } from "../atom";
 import Title from "../Components/Title";
 import { portfolioData } from "../portfolio";
+import ReactGA from "react-ga";
 
 const Container = styled(motion.section)`
   background-color: ${(props) => props.theme.bgColor.main};
@@ -226,7 +227,13 @@ function Projects() {
                   layoutId={item.id + ""}
                   key={item.id}
                   variants={itemVariants}
-                  onClick={() => navigate(`/projects/${item.id}`)}
+                  onClick={() => {
+                    ReactGA.event({
+                      category: "Click Project",
+                      action: `${item.name} 프로젝트를 클릭함`,
+                    });
+                    navigate(`/projects/${item.id}`);
+                  }}
                 >
                   <img
                     style={{ opacity: item.isPublished ? 1 : 0.5 }}
@@ -261,14 +268,26 @@ function Projects() {
                     <GithubLink>
                       <div
                         className="github"
-                        onClick={() => window.open(item.github)}
+                        onClick={() => {
+                          ReactGA.event({
+                            category: "Click External Link",
+                            action: `${item.name}의 Github 링크를 클릭함`,
+                          });
+                          window.open(item.github);
+                        }}
                       >
                         <i className="xi-github"></i>
                         <span>Github</span>
                       </div>
                       <div
                         className="website"
-                        onClick={() => window.open(item.website)}
+                        onClick={() => {
+                          ReactGA.event({
+                            category: "Click External Link",
+                            action: `${item.name}의 Github Pages 링크를 클릭함`,
+                          });
+                          window.open(item.website);
+                        }}
                       >
                         <i className="xi-external-link"></i>
                         <span>Visit Website</span>

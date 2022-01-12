@@ -22,6 +22,15 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+ReactGA.event({
+  category: "Visit",
+  action: "웹사이트에 방문함",
+});
+ReactGA.exception({
+  description: "에러가 발생함",
+  fatal: true,
+});
+
 function App() {
   const isDark = useRecoilValue(dark);
   useEffect(() => {

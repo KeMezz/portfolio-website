@@ -48,7 +48,7 @@ function Router() {
   useWindowSize();
   const windowSize = useRecoilValue(windowSizeAtom);
   return (
-    <BrowserRouter basename="/portfolio-website">
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="hyeongjin" element={<Hyeongjin />} />

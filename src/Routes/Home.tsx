@@ -5,6 +5,7 @@ import { useRecoilValue } from "recoil";
 import styled from "styled-components";
 import { windowSizeAtom } from "../atom";
 import { Helmet } from "react-helmet";
+import ReactGA from "react-ga";
 
 const Container = styled(motion.nav)`
   overflow: hidden;
@@ -74,7 +75,13 @@ function Home() {
             initial={{ x: 5000 }}
             animate={rowAnimation}
             transition={{ duration: 1 }}
-            onClick={() => onMenuClick("hyeongjin", 5000)}
+            onClick={() => {
+              ReactGA.event({
+                category: "Click Nav Menu",
+                action: "홈 화면에서 형진 페이지로 클릭함",
+              });
+              onMenuClick("hyeongjin", 5000);
+            }}
           >
             {windowSize.width > 1200 &&
             windowSize.height * 2 > windowSize.width ? (
@@ -95,7 +102,13 @@ function Home() {
             initial={{ x: -5000 }}
             animate={rowAnimation}
             transition={{ duration: 0.9 }}
-            onClick={() => onMenuClick("projects", -5000)}
+            onClick={() => {
+              ReactGA.event({
+                category: "Click Nav Menu",
+                action: "홈 화면에서 프로젝트 페이지를 클릭함",
+              });
+              onMenuClick("projects", -5000);
+            }}
           >
             {windowSize.width > 1200 &&
             windowSize.height * 2 > windowSize.width ? (
@@ -116,7 +129,13 @@ function Home() {
             initial={{ x: 5000 }}
             animate={rowAnimation}
             transition={{ duration: 0.8 }}
-            onClick={() => onMenuClick("skills", 5000)}
+            onClick={() => {
+              ReactGA.event({
+                category: "Click Nav Menu",
+                action: "홈 화면에서 스킬 페이지를 클릭함",
+              });
+              onMenuClick("skills", 5000);
+            }}
           >
             {windowSize.width > 1200 &&
             windowSize.height * 2 > windowSize.width ? (
@@ -137,7 +156,13 @@ function Home() {
             initial={{ x: -5000 }}
             animate={rowAnimation}
             transition={{ duration: 0.6 }}
-            onClick={() => onMenuClick("contacts", -5000)}
+            onClick={() => {
+              ReactGA.event({
+                category: "Click Nav Menu",
+                action: "홈 화면에서 연락처 페이지를 클릭함",
+              });
+              onMenuClick("contacts", -5000);
+            }}
           >
             {windowSize.width > 1200 &&
             windowSize.height * 2 > windowSize.width ? (
