@@ -1,10 +1,11 @@
 {
   "files": {
     "main.css": "/portfolio-website/static/css/main.e5f2aeff.css",
-    "main.js": "/portfolio-website/static/js/main.9e5aea70.js",
+    "main.js": "/portfolio-website/static/js/main.1ce6d00f.js",
     "static/media/react-netflix.webp": "/portfolio-website/static/media/react-netflix.f2f51e36bd2cdc5757cc.webp",
     "static/media/css-zoo.webp": "/portfolio-website/static/media/css-zoo.462414ba3fe72118d615.webp",
     "static/media/css-rodic.webp": "/portfolio-website/static/media/css-rodic.8c7c37a8443184b6e1d2.webp",
+    "static/media/ridibooks.webp": "/portfolio-website/static/media/ridibooks.228be8d8c92fd8cf90fa.webp",
     "static/media/css-tolv.webp": "/portfolio-website/static/media/css-tolv.d788f098789b58807a97.webp",
     "static/media/css-horror.webp": "/portfolio-website/static/media/css-horror.7e7d4e691cb001b0ca7e.webp",
     "static/media/js-momentum.webp": "/portfolio-website/static/media/js-momentum.abb3d2aa52d41cb8197c.webp",
@@ -23,10 +24,10 @@
     "static/media/logo-js.png": "/portfolio-website/static/media/logo-js.7903556225613d4b63e8.png",
     "index.html": "/portfolio-website/index.html",
     "main.e5f2aeff.css.map": "/portfolio-website/static/css/main.e5f2aeff.css.map",
-    "main.9e5aea70.js.map": "/portfolio-website/static/js/main.9e5aea70.js.map"
+    "main.1ce6d00f.js.map": "/portfolio-website/static/js/main.1ce6d00f.js.map"
   },
   "entrypoints": [
     "static/css/main.e5f2aeff.css",
-    "static/js/main.9e5aea70.js"
+    "static/js/main.1ce6d00f.js"
   ]
 }
