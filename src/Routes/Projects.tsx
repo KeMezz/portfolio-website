@@ -19,10 +19,15 @@ const ProjectGrid = styled(motion.div)`
   padding: 0 50px;
   gap: 60px;
   margin: 60px 0;
-  @media (max-width: 520px) {
-    grid-template-columns: repeat(auto-fit, minmax(200px, auto));
-    padding: 0 20px;
+  @media (max-width: 1000px) {
+    grid-template-columns: repeat(auto-fit, minmax(350px, auto));
     gap: 30px;
+    padding: 0 30px;
+  }
+  @media (max-width: 520px) {
+    grid-template-columns: repeat(auto-fit, minmax(230px, auto));
+    padding: 0 20px;
+    gap: 20px;
   }
 `;
 
