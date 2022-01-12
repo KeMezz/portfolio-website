@@ -21,7 +21,18 @@ import netflix from "./Images/react-netflix.webp";
 import portfolio from "./Images/react-portfolio.webp";
 import ridibooks from "./Images/ridibooks.webp";
 
-export const portfolioData = [
+interface iPortfolioData {
+  isPublished: boolean;
+  category: "CSS" | "Vanila JS" | "React JS";
+  id: number;
+  name: string;
+  stacks: string[];
+  github: string;
+  website: string;
+  thumbnail: string;
+}
+
+export const portfolioData: iPortfolioData[] = [
   {
     isPublished: true,
     category: "CSS",
