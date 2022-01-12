@@ -19,7 +19,7 @@ const ProjectGrid = styled(motion.div)`
   padding: 0 50px;
   gap: 60px;
   margin: 60px 0;
-  @media (max-width: 400px) {
+  @media (max-width: 520px) {
     grid-template-columns: repeat(auto-fit, minmax(200px, auto));
     padding: 0 20px;
     gap: 30px;
@@ -88,7 +88,7 @@ const DetailBottom = styled.div`
       font-size: 28px;
     }
   }
-  @media (max-width: 400px) {
+  @media (max-width: 520px) {
     h5 {
       font-size: 14px;
     }
@@ -141,7 +141,7 @@ const GithubLink = styled.div`
       }
     }
   }
-  @media (max-width: 400px) {
+  @media (max-width: 520px) {
     padding-top: 20px;
     div {
       padding: 4px 8px;
@@ -194,7 +194,6 @@ function Projects() {
       </Helmet>
       <AnimatePresence>
         <Container
-          // layoutId="container"
           style={{
             minHeight:
               windowSize.width < 1200
