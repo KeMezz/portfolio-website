@@ -3,6 +3,8 @@ import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { dark } from "./atom";
 import Router from "./Router";
 import { darkTheme, lightTheme } from "./Themes/theme";
+import ReactGA from "react-ga";
+import { useEffect } from "react";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -22,6 +24,10 @@ const GlobalStyle = createGlobalStyle`
 
 function App() {
   const isDark = useRecoilValue(dark);
+  useEffect(() => {
+    ReactGA.initialize("UA-216914033-1");
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
   return (
     <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
       <GlobalStyle />
