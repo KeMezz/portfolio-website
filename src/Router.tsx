@@ -51,11 +51,11 @@ function Router() {
     <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/hyeongjin" element={<Hyeongjin />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/projects/:projectId" element={<Projects />} />
-        <Route path="/skills" element={<Skills />} />
-        <Route path="/contacts" element={<Contacts />} />
+        <Route path="hyeongjin" element={<Hyeongjin />} />
+        <Route path="projects" element={<Projects />} />
+        <Route path="projects/:projectId" element={<Projects />} />
+        <Route path="skills" element={<Skills />} />
+        <Route path="contacts" element={<Contacts />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer
