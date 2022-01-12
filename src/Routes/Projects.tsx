@@ -155,6 +155,14 @@ const GithubLink = styled.div`
   }
 `;
 
+const OnDevAlert = styled.div`
+  padding-top: 30px;
+  display: flex;
+  color: crimson;
+  font-weight: 600;
+  justify-content: center;
+`;
+
 const Overlay = styled(motion.div)`
   top: 0;
   left: 0;
@@ -220,7 +228,11 @@ function Projects() {
                   variants={itemVariants}
                   onClick={() => navigate(`/projects/${item.id}`)}
                 >
-                  <img src={item.thumbnail} alt={item.name} />
+                  <img
+                    style={{ opacity: item.isPublished ? 1 : 0.5 }}
+                    src={item.thumbnail}
+                    alt={item.name}
+                  />
                 </ProjectItem>
               </AnimatePresence>
             ))}
@@ -229,9 +241,13 @@ function Projects() {
         {portfolioData.map((item) =>
           item.id + "" === projectId ? (
             <AnimatePresence key={item.id}>
-              <ProjectDetailView layoutId={item.id + ""} key={item.id}>
+              <ProjectDetailView layoutId={item.id + ""} key={item.id + ""}>
                 <DetailTop>
-                  <img src={item.thumbnail} alt={item.name} />
+                  <img
+                    style={{ opacity: item.isPublished ? 1 : 0.5 }}
+                    src={item.thumbnail}
+                    alt={item.name}
+                  />
                 </DetailTop>
                 <DetailBottom>
                   <h5>{item.category}</h5>
@@ -241,25 +257,32 @@ function Projects() {
                       <img key={index} src={eachStacks} alt="logo" />
                     ))}
                   </Skills>
-                  <GithubLink>
-                    <div
-                      className="github"
-                      onClick={() => window.open(item.github)}
-                    >
-                      <i className="xi-github"></i>
-                      <span>Github</span>
-                    </div>
-                    <div
-                      className="website"
-                      onClick={() => window.open(item.website)}
-                    >
-                      <i className="xi-external-link"></i>
-                      <span>Visit Website</span>
-                    </div>
-                  </GithubLink>
+                  {item.isPublished ? (
+                    <GithubLink>
+                      <div
+                        className="github"
+                        onClick={() => window.open(item.github)}
+                      >
+                        <i className="xi-github"></i>
+                        <span>Github</span>
+                      </div>
+                      <div
+                        className="website"
+                        onClick={() => window.open(item.website)}
+                      >
+                        <i className="xi-external-link"></i>
+                        <span>Visit Website</span>
+                      </div>
+                    </GithubLink>
+                  ) : (
+                    <OnDevAlert>
+                      <h1>현재 개발 중입니다</h1>
+                    </OnDevAlert>
+                  )}
                 </DetailBottom>
               </ProjectDetailView>
               <Overlay
+                key="overlay"
                 onClick={() => navigate(-1)}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
