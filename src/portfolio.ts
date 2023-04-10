@@ -4,6 +4,7 @@ import jsLogo from "./Images/logo-js.png";
 import tsLogo from "./Images/logo-typescript.png";
 import sassLogo from "./Images/logo-scss.png";
 import reactLogo from "./Images/logo-react.png";
+import gatsbyLogo from "./Images/logo-gatsby.png";
 
 import horrorMovies from "./Images/css-horror.webp";
 import rodicDavidson from "./Images/css-rodic.webp";
@@ -19,7 +20,7 @@ import cryptoTracker from "./Images/react-cryptotracker.webp";
 import dnd from "./Images/react-dnd.webp";
 import netflix from "./Images/react-netflix.webp";
 import portfolio from "./Images/react-portfolio.webp";
-import ridibooks from "./Images/ridibooks.webp";
+import devblogs from "./Images/react-devblogs.png";
 
 interface iPortfolioData {
   isPublished: boolean;
@@ -156,13 +157,13 @@ export const portfolioData: iPortfolioData[] = [
     thumbnail: portfolio,
   },
   {
-    isPublished: false,
+    isPublished: true,
     category: "React JS",
     id: 3005,
-    name: "RIDIPAPER Clone",
-    stacks: [reactLogo, tsLogo],
-    github: "",
-    website: "",
-    thumbnail: ridibooks,
+    name: ".cache 개발 블로그",
+    stacks: [reactLogo, tsLogo, gatsbyLogo],
+    github: "https://github.com/KeMezz/blog",
+    website: "https://dotcache.netlify.app/blog/",
+    thumbnail: devblogs,
   },
 ];
