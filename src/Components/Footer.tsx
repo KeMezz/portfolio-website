@@ -48,7 +48,7 @@ function Footer() {
       }}
     >
       <h3>FRONTEND DEVELOPER PORTFOLIO</h3>
-      <p>Copyright 2022. Hyeong Jin. All rights reserved.</p>
+      <p>Copyright 2023. Hyeong Jin. All rights reserved.</p>
     </FooterContainer>
   );
 }
