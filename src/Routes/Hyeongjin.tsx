@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 import { useRecoilValue } from "recoil";
 import styled from "styled-components";
 import { windowSizeAtom } from "../atom";
-import memoji from "../Images/memoji.webp";
+import memoji from "../Images/memoji.png";
 import cryptoImg from "../Images/react-cryptotracker.webp";
 import momentumImg from "../Images/js-momentum.webp";
 import portfolioImg from "../Images/react-portfolio.webp";
