@@ -226,126 +226,124 @@ function Projects() {
       <Helmet>
         <title>Projects | 형진 포트폴리오</title>
       </Helmet>
-      <AnimatePresence>
-        <Container
-          style={{
-            minHeight:
-              windowSize.width < 1200
-                ? window.innerHeight * 0.87
-                : window.innerHeight * 0.8,
+      <Container
+        style={{
+          minHeight:
+            windowSize.width < 1200
+              ? window.innerHeight * 0.87
+              : window.innerHeight * 0.8,
+        }}
+      >
+        <Title titleName="projects" />
+        <ProjectGrid
+          variants={gridVariatns}
+          initial="initial"
+          animate="animate"
+        >
+          {portfolioData.map((item) => (
+            <AnimatePresence key={item.id}>
+              <ProjectItem
+                layoutId={item.id + ""}
+                key={item.id}
+                variants={itemVariants}
+                onClick={() => {
+                  ReactGA.event({
+                    category: "Click Project",
+                    action: `${item.name} 프로젝트를 클릭함`,
+                  });
+                  navigate(`/projects/${item.id}`);
+                }}
+              >
+                <img
+                  style={{ opacity: item.isPublished ? 1 : 0.5 }}
+                  src={item.thumbnail}
+                  alt={item.name}
+                />
+              </ProjectItem>
+            </AnimatePresence>
+          ))}
+        </ProjectGrid>
+        <GoHome
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+          onClick={() => {
+            ReactGA.event({
+              category: "Click Internal Link",
+              action: "프로젝트 페이지에서 곧바로 홈 페이지로 이동함",
+            });
+            navigate("/");
           }}
         >
-          <Title titleName="projects" />
-          <ProjectGrid
-            variants={gridVariatns}
-            initial="initial"
-            animate="animate"
-          >
-            {portfolioData.map((item) => (
-              <AnimatePresence key={item.id}>
-                <ProjectItem
-                  layoutId={item.id + ""}
-                  key={item.id}
-                  variants={itemVariants}
-                  onClick={() => {
-                    ReactGA.event({
-                      category: "Click Project",
-                      action: `${item.name} 프로젝트를 클릭함`,
-                    });
-                    navigate(`/projects/${item.id}`);
-                  }}
-                >
-                  <img
-                    style={{ opacity: item.isPublished ? 1 : 0.5 }}
-                    src={item.thumbnail}
-                    alt={item.name}
-                  />
-                </ProjectItem>
-              </AnimatePresence>
-            ))}
-          </ProjectGrid>
-          <GoHome
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1 }}
-            onClick={() => {
-              ReactGA.event({
-                category: "Click Internal Link",
-                action: "프로젝트 페이지에서 곧바로 홈 페이지로 이동함",
-              });
-              navigate("/");
-            }}
-          >
-            <h3>홈으로 돌아가기</h3>
-          </GoHome>
-        </Container>
-        {portfolioData.map((item) =>
-          item.id + "" === projectId ? (
-            <AnimatePresence key={item.id}>
-              <ProjectDetailView layoutId={item.id + ""} key={item.id + ""}>
-                <DetailTop>
-                  <img
-                    style={{ opacity: item.isPublished ? 1 : 0.5 }}
-                    src={item.thumbnail}
-                    alt={item.name}
-                  />
-                </DetailTop>
-                <DetailBottom>
-                  <h5>{item.category}</h5>
-                  <h3>{item.name}</h3>
-                  <Skills>
-                    {item.stacks.map((eachStacks, index) => (
-                      <img key={index} src={eachStacks} alt="logo" />
-                    ))}
-                  </Skills>
-                  {item.isPublished ? (
-                    <GithubLink>
-                      <div
-                        className="github"
-                        onClick={() => {
-                          ReactGA.event({
-                            category: "Click External Link",
-                            action: `${item.name}의 Github 링크를 클릭함`,
-                          });
-                          window.open(item.github);
-                        }}
-                      >
-                        <i className="xi-github"></i>
-                        <span>Github</span>
-                      </div>
-                      <div
-                        className="website"
-                        onClick={() => {
-                          ReactGA.event({
-                            category: "Click External Link",
-                            action: `${item.name}의 Github Pages 링크를 클릭함`,
-                          });
-                          window.open(item.website);
-                        }}
-                      >
-                        <i className="xi-external-link"></i>
-                        <span>Visit Website</span>
-                      </div>
-                    </GithubLink>
-                  ) : (
-                    <OnDevAlert>
-                      <h1>현재 개발 중입니다</h1>
-                    </OnDevAlert>
-                  )}
-                </DetailBottom>
-              </ProjectDetailView>
-              <Overlay
-                key="overlay"
-                onClick={() => navigate(-1)}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-              />
-            </AnimatePresence>
-          ) : null
-        )}
-      </AnimatePresence>
+          <h3>홈으로 돌아가기</h3>
+        </GoHome>
+      </Container>
+      {portfolioData.map((item) =>
+        item.id + "" === projectId ? (
+          <AnimatePresence key={item.id}>
+            <ProjectDetailView layoutId={item.id + ""} key={item.id + ""}>
+              <DetailTop>
+                <img
+                  style={{ opacity: item.isPublished ? 1 : 0.5 }}
+                  src={item.thumbnail}
+                  alt={item.name}
+                />
+              </DetailTop>
+              <DetailBottom>
+                <h5>{item.category}</h5>
+                <h3>{item.name}</h3>
+                <Skills>
+                  {item.stacks.map((eachStacks, index) => (
+                    <img key={index} src={eachStacks} alt="logo" />
+                  ))}
+                </Skills>
+                {item.isPublished ? (
+                  <GithubLink>
+                    <div
+                      className="github"
+                      onClick={() => {
+                        ReactGA.event({
+                          category: "Click External Link",
+                          action: `${item.name}의 Github 링크를 클릭함`,
+                        });
+                        window.open(item.github);
+                      }}
+                    >
+                      <i className="xi-github"></i>
+                      <span>Github</span>
+                    </div>
+                    <div
+                      className="website"
+                      onClick={() => {
+                        ReactGA.event({
+                          category: "Click External Link",
+                          action: `${item.name}의 Github Pages 링크를 클릭함`,
+                        });
+                        window.open(item.website);
+                      }}
+                    >
+                      <i className="xi-external-link"></i>
+                      <span>Visit Website</span>
+                    </div>
+                  </GithubLink>
+                ) : (
+                  <OnDevAlert>
+                    <h1>현재 개발 중입니다</h1>
+                  </OnDevAlert>
+                )}
+              </DetailBottom>
+            </ProjectDetailView>
+            <Overlay
+              key="overlay"
+              onClick={() => navigate(-1)}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            />
+          </AnimatePresence>
+        ) : null
+      )}
     </>
   );
 }
