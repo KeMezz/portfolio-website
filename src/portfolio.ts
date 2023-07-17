@@ -24,7 +24,7 @@ import devblogs from "./Images/react-devblogs.png";
 
 interface iPortfolioData {
   isPublished: boolean;
-  category: "CSS" | "Vanila JS" | "React JS";
+  category: string;
   id: number;
   name: string;
   stacks: string[];
@@ -118,7 +118,7 @@ export const portfolioData: iPortfolioData[] = [
   },
   {
     isPublished: true,
-    category: "React JS",
+    category: "React",
     id: 3001,
     name: "Crypto Tracker",
     stacks: [reactLogo, tsLogo],
@@ -128,7 +128,7 @@ export const portfolioData: iPortfolioData[] = [
   },
   {
     isPublished: true,
-    category: "React JS",
+    category: "React",
     id: 3002,
     name: "Netflix Clone",
     stacks: [reactLogo, tsLogo],
@@ -138,7 +138,7 @@ export const portfolioData: iPortfolioData[] = [
   },
   {
     isPublished: true,
-    category: "React JS",
+    category: "React",
     id: 3003,
     name: "Trello Clone",
     stacks: [reactLogo, tsLogo],
@@ -148,7 +148,7 @@ export const portfolioData: iPortfolioData[] = [
   },
   {
     isPublished: true,
-    category: "React JS",
+    category: "React",
     id: 3004,
     name: "Portfolio Website",
     stacks: [reactLogo, tsLogo],
@@ -158,7 +158,7 @@ export const portfolioData: iPortfolioData[] = [
   },
   {
     isPublished: true,
-    category: "React JS",
+    category: "Gatsby.js",
     id: 3005,
     name: ".cache 개발 블로그",
     stacks: [reactLogo, tsLogo, gatsbyLogo],
