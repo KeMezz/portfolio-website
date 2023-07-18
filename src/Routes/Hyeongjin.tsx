@@ -300,7 +300,7 @@ function Hyeongjin() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 1.2 }}
                 >
-                  주니어 프론트엔드 개발자 정형진입니다.
+                  프론트엔드 개발자 정형진입니다.
                 </motion.h2>
               </IntroductionText>
               <Memoji
