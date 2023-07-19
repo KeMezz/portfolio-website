@@ -14,7 +14,6 @@ import tsLogo from "../Images/logo-typescript.png";
 import sassLogo from "../Images/logo-scss.png";
 import reactLogo from "../Images/logo-react.png";
 import { useNavigate } from "react-router-dom";
-import ReactGA from "react-ga";
 
 const Wrapper = styled(motion.div)`
   background-color: ${(props) => props.theme.bgColor.main};
@@ -421,10 +420,6 @@ function Hyeongjin() {
                 공개한 프로젝트는{" "}
                 <span
                   onClick={() => {
-                    ReactGA.event({
-                      category: "Click Internal Link",
-                      action: "형진 페이지에서 곧바로 프로젝트 페이지로 이동함",
-                    });
                     window.scrollTo(0, 0);
                     navigate("/projects");
                   }}
@@ -438,10 +433,6 @@ function Hyeongjin() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1 }}
                 onClick={() => {
-                  ReactGA.event({
-                    category: "Click Internal Link",
-                    action: "형진 페이지에서 곧바로 홈 페이지로 이동함",
-                  });
                   navigate("/");
                 }}
               >

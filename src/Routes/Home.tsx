@@ -5,7 +5,6 @@ import { useRecoilValue } from "recoil";
 import styled from "styled-components";
 import { windowSizeAtom } from "../atom";
 import { Helmet } from "react-helmet";
-import ReactGA from "react-ga";
 
 const Container = styled(motion.nav)`
   overflow: hidden;
@@ -54,7 +53,7 @@ function Home() {
   }, [rowAnimation]);
   const onMenuClick = async (navi: string, direction: number) => {
     await rowAnimation.start({ x: direction });
-    await navigate(`/${navi}`);
+    navigate(`/${navi}`);
   };
   return (
     <>
@@ -76,10 +75,6 @@ function Home() {
             animate={rowAnimation}
             transition={{ duration: 1 }}
             onClick={() => {
-              ReactGA.event({
-                category: "Click Nav Menu",
-                action: "홈 화면에서 형진 페이지로 클릭함",
-              });
               onMenuClick("hyeongjin", 5000);
             }}
           >
@@ -103,10 +98,6 @@ function Home() {
             animate={rowAnimation}
             transition={{ duration: 0.9 }}
             onClick={() => {
-              ReactGA.event({
-                category: "Click Nav Menu",
-                action: "홈 화면에서 프로젝트 페이지를 클릭함",
-              });
               onMenuClick("projects", -5000);
             }}
           >
@@ -130,10 +121,6 @@ function Home() {
             animate={rowAnimation}
             transition={{ duration: 0.8 }}
             onClick={() => {
-              ReactGA.event({
-                category: "Click Nav Menu",
-                action: "홈 화면에서 스킬 페이지를 클릭함",
-              });
               onMenuClick("skills", 5000);
             }}
           >
@@ -157,10 +144,6 @@ function Home() {
             animate={rowAnimation}
             transition={{ duration: 0.6 }}
             onClick={() => {
-              ReactGA.event({
-                category: "Click Nav Menu",
-                action: "홈 화면에서 연락처 페이지를 클릭함",
-              });
               onMenuClick("contacts", -5000);
             }}
           >
