@@ -5,6 +5,7 @@ import { useRecoilValue } from "recoil";
 import styled from "styled-components";
 import { windowSizeAtom } from "../atom";
 import { Helmet } from "react-helmet";
+import ReactGA from "react-ga4";
 
 const Container = styled(motion.nav)`
   overflow: hidden;
@@ -75,6 +76,10 @@ function Home() {
             animate={rowAnimation}
             transition={{ duration: 1 }}
             onClick={() => {
+              ReactGA.event({
+                category: "Click Nav Menu",
+                action: "홈 화면에서 형진 페이지 클릭",
+              });
               onMenuClick("hyeongjin", 5000);
             }}
           >
@@ -98,6 +103,10 @@ function Home() {
             animate={rowAnimation}
             transition={{ duration: 0.9 }}
             onClick={() => {
+              ReactGA.event({
+                category: "Click Nav Menu",
+                action: "홈 화면에서 프로젝트 페이지 클릭",
+              });
               onMenuClick("projects", -5000);
             }}
           >
@@ -121,6 +130,10 @@ function Home() {
             animate={rowAnimation}
             transition={{ duration: 0.8 }}
             onClick={() => {
+              ReactGA.event({
+                category: "Click Nav Menu",
+                action: "홈 화면에서 스킬 페이지 클릭",
+              });
               onMenuClick("skills", 5000);
             }}
           >
@@ -144,6 +157,10 @@ function Home() {
             animate={rowAnimation}
             transition={{ duration: 0.6 }}
             onClick={() => {
+              ReactGA.event({
+                category: "Click Nav Menu",
+                action: "홈 화면에서 연락처 페이지 클릭",
+              });
               onMenuClick("contacts", -5000);
             }}
           >

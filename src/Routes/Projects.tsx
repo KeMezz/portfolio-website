@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { windowSizeAtom } from "../atom";
 import Title from "../Components/Title";
 import { portfolioData } from "../portfolio";
+import ReactGA from "react-ga4";
 
 const Container = styled(motion.section)`
   background-color: ${(props) => props.theme.bgColor.main};
@@ -246,6 +247,10 @@ function Projects() {
                 key={item.id}
                 variants={itemVariants}
                 onClick={() => {
+                  ReactGA.event({
+                    category: "Click Project",
+                    action: `${item.name} 프로젝트 클릭`,
+                  });
                   navigate(`/projects/${item.id}`);
                 }}
               >
@@ -264,6 +269,10 @@ function Projects() {
           viewport={{ once: true }}
           transition={{ duration: 1 }}
           onClick={() => {
+            ReactGA.event({
+              category: "Click Internal Link",
+              action: "프로젝트 페이지에서 홈 페이지 클릭",
+            });
             navigate("/");
           }}
         >
@@ -294,6 +303,10 @@ function Projects() {
                     <div
                       className="github"
                       onClick={() => {
+                        ReactGA.event({
+                          category: "Click Project",
+                          action: `${item.name} 프로젝트의 깃허브 링크 열람`,
+                        });
                         window.open(item.github);
                       }}
                     >
@@ -303,6 +316,10 @@ function Projects() {
                     <div
                       className="website"
                       onClick={() => {
+                        ReactGA.event({
+                          category: "Click Project",
+                          action: `${item.name} 프로젝트의 웹사이트 링크 열람`,
+                        });
                         window.open(item.website);
                       }}
                     >

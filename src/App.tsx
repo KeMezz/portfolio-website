@@ -4,6 +4,8 @@ import { dark } from "./atom";
 import Router from "./Router";
 import { darkTheme, lightTheme } from "./Themes/theme";
 import { useWindowSize } from "./useWindowSize";
+import ReactGA from "react-ga4";
+import { useEffect } from "react";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -21,9 +23,18 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+ReactGA.event({
+  category: "Visit",
+  action: "사이트 방문",
+});
+
 function App() {
   useWindowSize();
   const isDark = useRecoilValue(dark);
+  useEffect(() => {
+    ReactGA.initialize("G-BY9H6FSQK9");
+    ReactGA.send({ hitType: "pageview", page: window.location.pathname });
+  }, []);
   return (
     <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
       <GlobalStyle />
