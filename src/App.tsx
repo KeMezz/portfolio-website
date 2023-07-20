@@ -3,7 +3,6 @@ import { createGlobalStyle, ThemeProvider } from "styled-components";
 import { dark } from "./atom";
 import Router from "./Router";
 import { darkTheme, lightTheme } from "./Themes/theme";
-import { useEffect } from "react";
 import { useWindowSize } from "./useWindowSize";
 
 const GlobalStyle = createGlobalStyle`
