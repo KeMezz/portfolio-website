@@ -279,7 +279,7 @@ function Projects() {
           <h3>홈으로 돌아가기</h3>
         </GoHome>
       </Container>
-      {portfolioData.reverse().map((item) =>
+      {portfolioData.map((item) =>
         item.id + "" === projectId ? (
           <AnimatePresence key={item.id}>
             <ProjectDetailView layoutId={item.id + ""} key={item.id + ""}>
