@@ -5,6 +5,8 @@ import tsLogo from "./Images/logo-typescript.png";
 import sassLogo from "./Images/logo-scss.png";
 import reactLogo from "./Images/logo-react.png";
 import gatsbyLogo from "./Images/logo-gatsby.png";
+import expressLogo from "./Images/logo-express.png";
+import mongoLogo from "./Images/logo-mongo.webp";
 
 import horrorMovies from "./Images/css-horror.webp";
 import rodicDavidson from "./Images/css-rodic.webp";
@@ -21,6 +23,7 @@ import dnd from "./Images/react-dnd.webp";
 import netflix from "./Images/react-netflix.webp";
 import portfolio from "./Images/react-portfolio.webp";
 import devblogs from "./Images/react-devblogs.png";
+import twitter from "./Images/express-twitter.png";
 
 interface iPortfolioData {
   isPublished: boolean;
@@ -37,12 +40,22 @@ export const portfolioData: iPortfolioData[] = [
   {
     isPublished: true,
     category: "Gatsby.js",
-    id: 13,
+    id: 14,
     name: ".cache 개발 블로그",
     stacks: [reactLogo, tsLogo, gatsbyLogo],
     github: "https://github.com/KeMezz/blog",
     website: "https://dotcache.netlify.app/blog/",
     thumbnail: devblogs,
+  },
+  {
+    isPublished: true,
+    category: "Express",
+    id: 13,
+    name: "Simple Twitter Clone",
+    stacks: [expressLogo, mongoLogo, jsLogo, reactLogo],
+    github: "https://github.com/KeMezz/twitter-clone-backend",
+    website: "https://kemezz.github.io/twitter-clone-frontend",
+    thumbnail: twitter,
   },
   {
     isPublished: true,
