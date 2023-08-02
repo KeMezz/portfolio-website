@@ -1,10 +1,11 @@
 {
   "files": {
     "main.css": "/portfolio-website/static/css/main.10db44d8.css",
-    "main.js": "/portfolio-website/static/js/main.6d688fa1.js",
+    "main.js": "/portfolio-website/static/js/main.7113cd42.js",
     "static/media/react-netflix.webp": "/portfolio-website/static/media/react-netflix.f2f51e36bd2cdc5757cc.webp",
     "static/media/css-zoo.webp": "/portfolio-website/static/media/css-zoo.462414ba3fe72118d615.webp",
     "static/media/css-rodic.webp": "/portfolio-website/static/media/css-rodic.8c7c37a8443184b6e1d2.webp",
+    "static/media/next-carrot.png": "/portfolio-website/static/media/next-carrot.52403a388ae65b260f3b.png",
     "static/media/css-tolv.webp": "/portfolio-website/static/media/css-tolv.d788f098789b58807a97.webp",
     "static/media/css-horror.webp": "/portfolio-website/static/media/css-horror.7e7d4e691cb001b0ca7e.webp",
     "static/media/js-momentum.webp": "/portfolio-website/static/media/js-momentum.abb3d2aa52d41cb8197c.webp",
@@ -12,6 +13,7 @@
     "static/media/react-devblogs.png": "/portfolio-website/static/media/react-devblogs.c1b87655cfef135abff9.png",
     "static/media/css-schwartz.webp": "/portfolio-website/static/media/css-schwartz.7a825e9cb9c940b11403.webp",
     "static/media/memoji.png": "/portfolio-website/static/media/memoji.7f0886a24c86880e998d.png",
+    "static/media/next-nadoharu.png": "/portfolio-website/static/media/next-nadoharu.b1a7ccd5836ae61afc8e.png",
     "static/media/express-twitter.png": "/portfolio-website/static/media/express-twitter.cd0c23dc6fd82032a656.png",
     "static/media/react-cryptotracker.webp": "/portfolio-website/static/media/react-cryptotracker.fb906d4ebc84cab0d0ec.webp",
     "static/media/react-portfolio.webp": "/portfolio-website/static/media/react-portfolio.775fd1dbe7c08d5025bc.webp",
@@ -24,13 +26,14 @@
     "static/media/logo-html.png": "/portfolio-website/static/media/logo-html.33745eadd572612bdf11.png",
     "static/media/logo-typescript.png": "/portfolio-website/static/media/logo-typescript.a357730181b8cd83af34.png",
     "static/media/logo-js.png": "/portfolio-website/static/media/logo-js.7903556225613d4b63e8.png",
+    "static/media/logo-nextjs.svg": "/portfolio-website/static/media/logo-nextjs.e3c042b9d9d809ebb67e9bc6e1e5f70d.svg",
     "index.html": "/portfolio-website/index.html",
     "static/media/logo-mongo.webp": "/portfolio-website/static/media/logo-mongo.ad83ac4fb05f37c2d8b4.webp",
     "main.10db44d8.css.map": "/portfolio-website/static/css/main.10db44d8.css.map",
-    "main.6d688fa1.js.map": "/portfolio-website/static/js/main.6d688fa1.js.map"
+    "main.7113cd42.js.map": "/portfolio-website/static/js/main.7113cd42.js.map"
   },
   "entrypoints": [
     "static/css/main.10db44d8.css",
-    "static/js/main.6d688fa1.js"
+    "static/js/main.7113cd42.js"
   ]
 }
