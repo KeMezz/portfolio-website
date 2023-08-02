@@ -7,6 +7,7 @@ import reactLogo from "./Images/logo-react.png";
 import gatsbyLogo from "./Images/logo-gatsby.png";
 import expressLogo from "./Images/logo-express.png";
 import mongoLogo from "./Images/logo-mongo.webp";
+import nextLogo from "./Images/logo-nextjs.svg";
 
 import horrorMovies from "./Images/css-horror.webp";
 import rodicDavidson from "./Images/css-rodic.webp";
@@ -24,6 +25,8 @@ import netflix from "./Images/react-netflix.webp";
 import portfolio from "./Images/react-portfolio.webp";
 import devblogs from "./Images/react-devblogs.png";
 import twitter from "./Images/express-twitter.png";
+import carrot from "./Images/next-carrot.png";
+import nadoharu from "./Images/next-nadoharu.png";
 
 interface iPortfolioData {
   isPublished: boolean;
@@ -39,9 +42,29 @@ interface iPortfolioData {
 export const portfolioData: iPortfolioData[] = [
   {
     isPublished: true,
+    category: "Next.js",
+    id: 16,
+    name: "나도하루 마이크로 블로그",
+    stacks: [reactLogo, tsLogo, nextLogo],
+    github: "https://github.com/GuitarCoders/front",
+    website: "http://nadoharu.duckdns.org/",
+    thumbnail: nadoharu,
+  },
+  {
+    isPublished: true,
+    category: "Next.js",
+    id: 15,
+    name: "당근마켓 클론",
+    stacks: [reactLogo, tsLogo, nextLogo],
+    github: "https://github.com/KeMezz/carrot-market",
+    website: "https://carrot-market-kemezz.vercel.app/",
+    thumbnail: carrot,
+  },
+  {
+    isPublished: true,
     category: "Gatsby.js",
     id: 14,
-    name: ".cache 개발 블로그",
+    name: "닷캐시 개발 블로그",
     stacks: [reactLogo, tsLogo, gatsbyLogo],
     github: "https://github.com/KeMezz/blog",
     website: "https://dotcache.netlify.app/blog/",
@@ -51,7 +74,7 @@ export const portfolioData: iPortfolioData[] = [
     isPublished: true,
     category: "Express",
     id: 13,
-    name: "Simple Twitter Clone",
+    name: "트위터 클론",
     stacks: [expressLogo, mongoLogo, jsLogo, reactLogo],
     github: "https://github.com/KeMezz/twitter-clone-backend",
     website: "https://kemezz.github.io/twitter-clone-frontend",
@@ -71,7 +94,7 @@ export const portfolioData: iPortfolioData[] = [
     isPublished: true,
     category: "React",
     id: 11,
-    name: "Trello Clone",
+    name: "Trello 클론",
     stacks: [reactLogo, tsLogo],
     github: "https://github.com/KeMezz/dragndrop-todo",
     website: "https://kemezz.github.io/dragndrop-todo/",
@@ -81,7 +104,7 @@ export const portfolioData: iPortfolioData[] = [
     isPublished: true,
     category: "React",
     id: 10,
-    name: "Netflix Clone",
+    name: "Netflix 클론",
     stacks: [reactLogo, tsLogo],
     github: "https://github.com/KeMezz/netflix-clone",
     website: "https://kemezz.github.io/netflix-clone/",
@@ -101,7 +124,7 @@ export const portfolioData: iPortfolioData[] = [
     isPublished: true,
     category: "Vanila JS",
     id: 8,
-    name: "Donica Ida Clone",
+    name: "Donica Ida 클론",
     stacks: [htmlLogo, cssLogo, jsLogo, sassLogo],
     github: "https://github.com/KeMezz/donica-clone.github.io",
     website: "https://kemezz.github.io/donica-clone.github.io/",
@@ -111,7 +134,7 @@ export const portfolioData: iPortfolioData[] = [
     isPublished: true,
     category: "Vanila JS",
     id: 7,
-    name: "Nike Clone",
+    name: "Nike 웹사이트 클론",
     stacks: [htmlLogo, cssLogo, jsLogo, sassLogo],
     github: "https://github.com/KeMezz/nike-clone.github.io",
     website: "https://kemezz.github.io/nike-clone.github.io/",
@@ -121,7 +144,7 @@ export const portfolioData: iPortfolioData[] = [
     isPublished: true,
     category: "Vanila JS",
     id: 6,
-    name: "Momentum Clone",
+    name: "Momentum 클론",
     stacks: [htmlLogo, cssLogo, jsLogo],
     github: "https://github.com/KeMezz/momentum_clone.github.io",
     website: "https://kemezz.github.io/momentum_clone.github.io/",
@@ -131,7 +154,7 @@ export const portfolioData: iPortfolioData[] = [
     isPublished: true,
     category: "CSS",
     id: 5,
-    name: "Schwartzmedia Clone",
+    name: "Schwartzmedia 클론",
     stacks: [htmlLogo, cssLogo, sassLogo, jsLogo],
     github: "https://github.com/KeMezz/schwartzmedia.github.io",
     website: "https://kemezz.github.io/schwartzmedia.github.io/",
@@ -141,7 +164,7 @@ export const portfolioData: iPortfolioData[] = [
     isPublished: true,
     category: "CSS",
     id: 4,
-    name: "Tolv Clone",
+    name: "Tolv 클론",
     stacks: [htmlLogo, cssLogo, jsLogo],
     github: "https://github.com/KeMezz/tolv_clone.github.io",
     website: "https://kemezz.github.io/tolv_clone.github.io/",
@@ -151,7 +174,7 @@ export const portfolioData: iPortfolioData[] = [
     isPublished: true,
     category: "CSS",
     id: 3,
-    name: "Zoo Clone",
+    name: "Zoo 클론",
     stacks: [htmlLogo, cssLogo, sassLogo],
     github: "https://github.com/KeMezz/zoo-clone.github.io",
     website: "https://kemezz.github.io/zoo-clone.github.io/",
@@ -161,7 +184,7 @@ export const portfolioData: iPortfolioData[] = [
     isPublished: true,
     category: "CSS",
     id: 2,
-    name: "Best Horror Movies Clone",
+    name: "Best Horror Movies 클론",
     stacks: [htmlLogo, cssLogo, sassLogo],
     github: "https://github.com/KeMezz/horror-movies-clone.github.io",
     website: "https://kemezz.github.io/horror-movies-clone.github.io/",
@@ -171,7 +194,7 @@ export const portfolioData: iPortfolioData[] = [
     isPublished: true,
     category: "CSS",
     id: 1,
-    name: "RDA Clone",
+    name: "RDA 클론",
     stacks: [htmlLogo, cssLogo, sassLogo],
     github:
       "https://github.com/KeMezz/rodic-davidson-architects_clone.github.io",
