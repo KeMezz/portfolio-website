@@ -47,8 +47,7 @@ export const portfolioData: iPortfolioData[] = [
     name: "NDHR Project (開発中)",
     stacks: [reactLogo, tsLogo, nextLogo],
     github: "https://github.com/KeMezz/nadoharu-standalone",
-    website:
-      "https://nadoharu-standalone-kxyfb1bou-kemezzs-projects.vercel.app/login",
+    website: "https://nadoharu-standalone.vercel.app/",
     thumbnail: nadoharu,
   },
   {
