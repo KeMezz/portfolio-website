@@ -57,7 +57,7 @@ export const portfolioData: iPortfolioData[] = [
     name: "Karrot Market Clone",
     stacks: [reactLogo, tsLogo, nextLogo],
     github: "https://github.com/KeMezz/carrot-market",
-    website: "https://carrot-market-kemezz.vercel.app/",
+    website: "https://carrot-market-two-inky.vercel.app/",
     thumbnail: carrot,
   },
   {
